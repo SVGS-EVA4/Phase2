@@ -1,7 +1,7 @@
 import torch
 def save_model(epoch , model, optimizer, best_loss,best_acc,path ):
 
-  print(f'Saving Model to {path}')
+  print(f'Test Accuracy Improved! Saving Model to {path}')
   torch.save({
             'epoch': epoch,
             'state_dict': model,
@@ -10,7 +10,7 @@ def save_model(epoch , model, optimizer, best_loss,best_acc,path ):
             'optimizer' : optimizer,
         }, path)
 
-def save_model_cpu(path):
+def save_model_cpu(model,path):
 	model.to('cpu')
 	model.eval()
 	traced_model = torch.jit.trace(model,torch.randn(1,3,244,244)) 
