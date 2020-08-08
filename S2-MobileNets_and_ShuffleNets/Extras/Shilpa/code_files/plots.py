@@ -1,14 +1,14 @@
 import matplotlib.pyplot as plt
 
-def plot_accuracy_and_lr(test_acc, train_acc,l_rate):
+def plot_train_test_lr(test=[], train=[],l_rate=[], Type=''):
   fig, ax1 = plt.subplots()
 
   ax1.set_xlabel('epoch (s)')
-  ax1.set_ylabel('accuracy', color='g')
-  testline, = ax1.plot( test_acc, color='g')
+  ax1.set_ylabel(Type, color='g')
+  testline, = ax1.plot( test, color='g')
   ax1.tick_params(axis='y', labelcolor='g')
 
-  trainline, = ax1.plot( train_acc, color='r')
+  trainline, = ax1.plot( train, color='r')
   ax1.legend((trainline, testline), ('Train', 'Test'), loc=7)
   ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
 
@@ -19,5 +19,16 @@ def plot_accuracy_and_lr(test_acc, train_acc,l_rate):
   ax2.tick_params(axis='y', labelcolor='b')
 
   fig.tight_layout()  # otherwise the right y-label is slightly clipped
-  plt.title("Learning Rate and Train/test Accuracy Comparison")
+  title= f"Learning Rate and Train/Test {Type} Comparison"
+  plt.title(title)
+  plt.show()
+
+def plot_graphs(stats=[],labels=[],xlabel='',ylabel='',plot_title=''):
+  plt.figure(figsize=(10, 5))
+  ax = plt.subplot(111)
+  for i in range(len(labels)):
+    ax.plot(stats[i],label=labels[i])
+
+  ax.set(title=plot_title, xlabel=xlabel, ylabel=ylabel)
+  ax.legend()
   plt.show()
