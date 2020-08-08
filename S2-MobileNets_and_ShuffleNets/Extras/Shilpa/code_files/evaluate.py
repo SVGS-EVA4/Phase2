@@ -1,3 +1,4 @@
+import torch
 def evaluate_classwise_accuracy(model, device, classes, test_loader):
     class_correct = list(0. for i in range(4))
     class_total = list(0. for i in range(4))
