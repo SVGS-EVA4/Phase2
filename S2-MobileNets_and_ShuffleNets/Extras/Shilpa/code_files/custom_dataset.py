@@ -18,7 +18,7 @@ def unzip_files(filename = '/content/gdrive/My Drive/e4p2/dataset.zip'):
       zip_file.extractall() 
       print('Done!')
 
-def get_data(label_file='/content/gdrive/My Drive/e4p2/labels_num.txt',length=None):
+def get_data(label_file=None,length=None):
     images = []
     target = []
     
@@ -61,14 +61,14 @@ class CustomDataset(Dataset):
                     
         return input_image,target
 
-def generate_dataset(length =None, train_transform =None,test_transform =None,dataset_path='/content/gdrive/My Drive/e4p2/dataset_padded.zip'):
+def generate_dataset(length =None, train_transform =None,test_transform =None,dataset_path=None,labels_path=None):
   import os
   if 'Dataset' not in os.listdir('/content'):
     unzip_files(filename=dataset_path)
   else:
     print('Files already downloaded')
   print('Forming the dataset')
-  train, test = get_data(length=length)
+  train, test = get_data(label_file=labels_path, length=length )
 
   train_set = CustomDataset(train,transform=train_transform )
   test_set = CustomDataset(test,transform=test_transform )
