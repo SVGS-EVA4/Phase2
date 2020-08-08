@@ -57,9 +57,16 @@ Model Architecture:
 ```
 to
 ```
-
+(classifier): Sequential(
+    (0): Dropout(p=0.2, inplace=False)
+    (1): Sequential(
+      (0): Linear(in_features=1280, out_features=256, bias=True)
+      (1): ReLU()
+      (2): Linear(in_features=256, out_features=4, bias=True)
+    )
 ```
 
 Misclassified Images: 
-
+<img src='./images/misclassified.jpg'/>
 Plots:
+<img src='./images/acc_plot.jpg'/>
