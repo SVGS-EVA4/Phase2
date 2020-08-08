@@ -1,3 +1,8 @@
+import torch
+import torchvision
+import matplotlib.pyplot as plt
+import numpy as np
+
 def imshow_images(img,c ):
     img = img / 2 + 0.5     # unnormalize
     npimg = img.numpy()
