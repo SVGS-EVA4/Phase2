@@ -61,10 +61,10 @@ class CustomDataset(Dataset):
                     
         return input_image,target
 
-def form_data(length =None, train_transform =None,test_transform =None):
+def generate_dataset(length =None, train_transform =None,test_transform =None,dataset_path='/content/gdrive/My Drive/e4p2/dataset_padded.zip'):
   import os
   if 'Dataset' not in os.listdir('/content'):
-    unzip_files(filename='/content/gdrive/My Drive/e4p2/dataset_padded.zip')
+    unzip_files(filename=dataset_path)
   else:
     print('Files already downloaded')
   print('Forming the dataset')
