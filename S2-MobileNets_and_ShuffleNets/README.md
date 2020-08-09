@@ -23,7 +23,7 @@
 
 ## Dataset
 
-!<p align="center"><img src = "https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S2-MobileNets_and_ShuffleNets/images/dataset_viz1.PNG" width = "500")</p>
+<p align="center"><img src = "https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S2-MobileNets_and_ShuffleNets/images/dataset_viz1.PNG" width = "500")</p>
 
 ### Resizing Strategy:
 * The dataset consisted of non-square images of different sizes.
