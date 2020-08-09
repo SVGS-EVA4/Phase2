@@ -1,6 +1,8 @@
 #  <p align="center">MobileNets and ShuffleNets</p>
 
 ## Problem Statement:
+<br/>
+
 > Training MobileNet-V2(transfer learning) on a custom dataset with 4 classes - Small Copter, Large Copter, Winged Drones and Flying Birds.
 <br/>
 <br/>
