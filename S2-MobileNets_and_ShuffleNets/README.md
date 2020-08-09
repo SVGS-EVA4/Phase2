@@ -9,7 +9,7 @@
 | Raw Dataset          | [click here](https://drive.google.com/file/d/1-EvvUU6K6RzNVgEibT3oP1SFb_epRNbI/view?usp=sharing)  |
 | Preprocessed DataSet |[click here](https://drive.google.com/file/d/1sJ8EngUpwcTT7tbqRhqQijbm-nGLuVF9/view?usp=sharing)   |
 | Labels               |[click here](https://drive.google.com/file/d/1-5KNd0rNceRdtxWqvlG_3w9VnY37Bkc5/view?usp=sharing)   |
-| End Point            | [https://865fgqaq94.execute-api.ap-south-1.amazonaws.com/dev/classification](https://865fgqaq94.execute-api.ap-south-1.amazonaws.com/dev/classification)          |
+| End Point            | [https://xxxxxxxxxx.execute-api.ap-south-1.amazonaws.com/dev/classification](https://865fgqaq94.execute-api.ap-south-1.amazonaws.com/dev/classification)          |
 
 
 <b>Insomia Output:</b>
