@@ -97,4 +97,9 @@
 
 ## Misclassified Images: 
 
-<img src='https://github.com/SVGS-EVA4/Phase2/blob/master/S2-MobileNets_and_ShuffleNets/images/misclassified_classwise.png'/>
+<p align="center"><img src='https://github.com/SVGS-EVA4/Phase2/blob/master/S2-MobileNets_and_ShuffleNets/images/misclassified_classwise.png' height = "800" /></p>
+
+## Observation:
+* By seeing at the misclassified images we can observe that there are lot of misclassification between large quadcopters and small quadcopters. Model is confused between those 2, as ther is not much difference between them.
+* Some are correctly classified, but the actual labels are only wrong.
+* Flying birds are mostly classified as winged drones, seeing at the wings of birds
