@@ -3,7 +3,7 @@
 ## Problem Statement:
 > Training MobileNet-V2(transfer learning) on a custom dataset with 4 classes - Small Copter, Large Copter, Winged Drones and Flying Birds.
 
-## Links </b> <a href='https://drive.google.com/file/d/1-EvvUU6K6RzNVgEibT3oP1SFb_epRNbI/view?usp=sharing'>dataset.zip</a>
+## Links
 
 |Links                 |                                                                                                   |
 | ---------------------| --------------------------------------------------------------------------------------------------|
@@ -13,15 +13,11 @@
 | End Point            | [click here](https://865fgqaq94.execute-api.ap-south-1.amazonaws.com/dev/classification)          |
 
 
-<b>Link to the modified dataset and labels:</b> <a href='https://drive.google.com/file/d/1sJ8EngUpwcTT7tbqRhqQijbm-nGLuVF9/view?usp=sharing'>dataset_padded.zip</a> , <a href='https://drive.google.com/file/d/1-5KNd0rNceRdtxWqvlG_3w9VnY37Bkc5/view?usp=sharing'>Labels </a>
-
-<b>Website:</b> <a href='https://865fgqaq94.execute-api.ap-south-1.amazonaws.com/dev/classification'>https://865fgqaq94.execute-api.ap-south-1.amazonaws.com/dev/classification</a>
-
 <b>Insomia Output:</b>
 
 <img src='https://github.com/SVGS-EVA4/Phase2/blob/master/S2-MobileNets_and_ShuffleNets/images/insomia_output.JPG'/>
 
-## Result:
+## Stats:
 * Best Train Accuracy: 89.17%
 * Best Test Accuracy: 89.28%
 * Epochs: 20 
