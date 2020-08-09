@@ -21,10 +21,15 @@
 <img src='https://github.com/SVGS-EVA4/Phase2/blob/master/S2-MobileNets_and_ShuffleNets/images/insomia_output.JPG'/>
 
 ## Results:
+* Epochs: 20 
 * Best Train Accuracy: 89.17%
 * Best Test Accuracy: 89.28%
-* Epochs: 20 
-
+* Classwise Accuracies:
+   * Winged_Drones : 90.29%
+   * Small_QuadCopters : 76.33%
+   * Large_QuadCopters : 80.0%
+   * Flying_Birds : 98.93%
+   
 ## Dataset Stats
 
 <img src= "https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S2-MobileNets_and_ShuffleNets/images/dataset_viz1.PNG" width = "400">
@@ -102,6 +107,6 @@
 <p align="center"><img src='https://github.com/SVGS-EVA4/Phase2/blob/master/S2-MobileNets_and_ShuffleNets/images/misclassified_classwise.png' height = "1600" /></p>
 
 ## Observation:
-* By seeing at the misclassified images we can observe that there are lot of misclassification between large quadcopters and small quadcopters. Model is confused between those 2, as ther is not much difference between them.
-* Some are correctly classified, but the actual labels are only wrong.
-* Flying birds are mostly classified as winged drones, seeing at the wings of birds
+* By looking at the misclassified images we can observe that there are lot of misclassification between large quadcopters and small quadcopters. Model is confused between the two, as there is not much difference between them.
+* Some are correctly classified, but the actual labels themselves are incorrect.
+* Flying birds are mostly classified as winged drones, biased by the wings of birds.
