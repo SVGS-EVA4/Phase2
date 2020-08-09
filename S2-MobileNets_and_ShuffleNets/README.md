@@ -1,4 +1,4 @@
-# MobileNets and ShuffleNets
+#  <p align="center">MobileNets and ShuffleNets</p>
 
 ## Problem Statement:
 Training MobileNet-V2(transfer learning) on a custom dataset with 4 classes - Small Copter, Large Copter, Winged Drones and Flying Birds.
@@ -58,13 +58,7 @@ Training MobileNet-V2(transfer learning) on a custom dataset with 4 classes - Sm
 
 * Results:
 
-  Input:
-
-  <img src='https://github.com/SVGS-EVA4/Phase2/blob/master/S2-MobileNets_and_ShuffleNets/images/pad_input.png'/>
-
-  Output: 
-
-  <img src='https://github.com/SVGS-EVA4/Phase2/blob/master/S2-MobileNets_and_ShuffleNets/images/pad_output.png'/>
+ <p align="center"><img src = "https://github.com/SVGS-EVA4/Phase2/blob/master/S2-MobileNets_and_ShuffleNets/images/input_output_pad.jpg"></p>
  
 
 ## Model Architecture:
