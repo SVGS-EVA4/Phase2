@@ -2,6 +2,8 @@
 
 ## Problem Statement:
 > Training MobileNet-V2(transfer learning) on a custom dataset with 4 classes - Small Copter, Large Copter, Winged Drones and Flying Birds.
+<br/>
+<br/>
 
 
 |Links                 |                                                                                                   |
@@ -9,7 +11,7 @@
 | Raw Dataset          | [click here](https://drive.google.com/file/d/1-EvvUU6K6RzNVgEibT3oP1SFb_epRNbI/view?usp=sharing)  |
 | Preprocessed DataSet |[click here](https://drive.google.com/file/d/1sJ8EngUpwcTT7tbqRhqQijbm-nGLuVF9/view?usp=sharing)   |
 | Labels               |[click here](https://drive.google.com/file/d/1-5KNd0rNceRdtxWqvlG_3w9VnY37Bkc5/view?usp=sharing)   |
-| End Point            | [https://xxxxxxxxxx.execute-api.ap-south-1.amazonaws.com/dev/classification](https://865fgqaq94.execute-api.ap-south-1.amazonaws.com/dev/classification)          |
+| End Point            | https://865fgqaq94.execute-api.ap-south-1.amazonaws.com/dev/classification                        |
 
 
 <b>Insomia Output:</b>
@@ -91,9 +93,7 @@
 
 ## Plots:
 
-<img src='https://github.com/SVGS-EVA4/Phase2/blob/master/S2-MobileNets_and_ShuffleNets/images/plot_acc.png'/>
-
-<img src='https://github.com/SVGS-EVA4/Phase2/blob/master/S2-MobileNets_and_ShuffleNets/images/plot_loss.png'/>
+<p align="center"><img src= "https://github.com/SVGS-EVA4/Phase2/blob/master/S2-MobileNets_and_ShuffleNets/images/plots.jpg"></p>
 
 ## Misclassified Images: 
 
