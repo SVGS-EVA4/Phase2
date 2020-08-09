@@ -9,21 +9,21 @@
 | Raw Dataset          | [click here](https://drive.google.com/file/d/1-EvvUU6K6RzNVgEibT3oP1SFb_epRNbI/view?usp=sharing)  |
 | Preprocessed DataSet |[click here](https://drive.google.com/file/d/1sJ8EngUpwcTT7tbqRhqQijbm-nGLuVF9/view?usp=sharing)   |
 | Labels               |[click here](https://drive.google.com/file/d/1-5KNd0rNceRdtxWqvlG_3w9VnY37Bkc5/view?usp=sharing)   |
-| End Point            | [click here](https://865fgqaq94.execute-api.ap-south-1.amazonaws.com/dev/classification)          |
+| End Point            | [https://865fgqaq94.execute-api.ap-south-1.amazonaws.com/dev/classification](https://865fgqaq94.execute-api.ap-south-1.amazonaws.com/dev/classification)          |
 
 
 <b>Insomia Output:</b>
 
 <img src='https://github.com/SVGS-EVA4/Phase2/blob/master/S2-MobileNets_and_ShuffleNets/images/insomia_output.JPG'/>
 
-## Stats:
+## Results:
 * Best Train Accuracy: 89.17%
 * Best Test Accuracy: 89.28%
 * Epochs: 20 
 
-## Dataset
+## Dataset Stats
 
-<p align="center"><img src = "https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S2-MobileNets_and_ShuffleNets/images/dataset_viz1.PNG" width = "300")</p>
+<img src = "https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S2-MobileNets_and_ShuffleNets/images/dataset_viz1.PNG" width = "400")
 
 ### Resizing Strategy:
 * The dataset consisted of non-square images of different sizes.
