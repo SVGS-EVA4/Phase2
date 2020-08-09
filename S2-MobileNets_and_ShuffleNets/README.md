@@ -1,12 +1,15 @@
-# Mobilenet
+# MobileNets and ShuffleNets
 
-Link to dataset: <a href='https://drive.google.com/file/d/1-EvvUU6K6RzNVgEibT3oP1SFb_epRNbI/view?usp=sharing'>dataset.zip</a>
+## Problem Statement:
+Training MobileNet-V2(transfer learning) on a custom dataset with 4 classes - Small Copter, Large Copter, Winged Drones and Flying Birds.
 
-Link to the modified dataset and labels : <a href='https://drive.google.com/file/d/1sJ8EngUpwcTT7tbqRhqQijbm-nGLuVF9/view?usp=sharing'>dataset_padded.zip</a> , <a href='https://drive.google.com/file/d/1-5KNd0rNceRdtxWqvlG_3w9VnY37Bkc5/view?usp=sharing'>Labels </a>
+<b>Link to dataset:</b> <a href='https://drive.google.com/file/d/1-EvvUU6K6RzNVgEibT3oP1SFb_epRNbI/view?usp=sharing'>dataset.zip</a>
 
-Website: <a href='https://865fgqaq94.execute-api.ap-south-1.amazonaws.com/dev/classification'>https://865fgqaq94.execute-api.ap-south-1.amazonaws.com/dev/classification</a>
+<b>Link to the modified dataset and labels:</b> <a href='https://drive.google.com/file/d/1sJ8EngUpwcTT7tbqRhqQijbm-nGLuVF9/view?usp=sharing'>dataset_padded.zip</a> , <a href='https://drive.google.com/file/d/1-5KNd0rNceRdtxWqvlG_3w9VnY37Bkc5/view?usp=sharing'>Labels </a>
 
-Insomia Output:
+<b>Website:</b> <a href='https://865fgqaq94.execute-api.ap-south-1.amazonaws.com/dev/classification'>https://865fgqaq94.execute-api.ap-south-1.amazonaws.com/dev/classification</a>
+
+<b>Insomia Output:</b>
 
 <img src='https://github.com/SVGS-EVA4/Phase2/blob/master/S2-MobileNets_and_ShuffleNets/images/insomia_output.JPG'/>
 
@@ -18,38 +21,36 @@ Insomia Output:
 ## Resizing Strategy:
 * The dataset consisted of non-square images of different sizes.
 * So we converted all the images to square images by padding them.
-* Approach:
+* Later during training we applied the resize augmentation technique of albumentations library to convert all the images to 224x224.
+* Approach for padding the images:
     * The padding is performed by overlaying the image at the center of a black image. 
-    * For an image which is a larger width compared to it's height, we padded the image along the width of the image.
-    * For an image which is a larger height compared to it's width, we padded the image along the height of the image.    
+    * For an image which has a larger width compared to it's height, we padded the image along the width of the image.
+    * For an image which has a larger height compared to it's width, we padded the image along the height of the image.    
 * Following is the code:
-```
+   ```
 
-img_file_path = '/content/dataset/Small_QuadCopters/Small_QuadCopters_1.jpg'
-img = Image.open(img_file_path).convert('RGB')
+   img_file_path = '/content/dataset/Small_QuadCopters/Small_QuadCopters_1.jpg'
+   img = Image.open(img_file_path).convert('RGB')
+   h,w = img.size[0],img.size[1]
+   max_len = max(h,w)
 
-h,w = img.size[0],img.size[1]
-max_len = max(h,w)
-if h == w:
-    return img
-    
-elif h>w:
-    diff = int(abs(h-w)/2)
-    black = np.zeros((max_len,max_len))
-    black_img = Image.fromarray(black,mode='RGB')
+   if h == w:
+       black_img.save(f'/content/Dataset/{img_save_path}')
 
-    black_img.paste(img,(0,diff))
-    return black_img
-elif w>h:
-    diff = int(abs(h-w)/2)
-    black = np.zeros((max_len,max_len))
-    black_img = Image.fromarray(black,mode='RGB')
+   elif h>w:
+       diff = int(abs(h-w)/2)
+       black = np.zeros((max_len,max_len))
+       black_img = Image.fromarray(black,mode='RGB')
+       black_img.paste(img,(0,diff))
+       black_img.save(f'/content/Dataset/{img_save_path}')
 
-    black_img.paste(img,(diff,0))
-
-    return black_img
-
-```
+   elif w>h:
+       diff = int(abs(h-w)/2)
+       black = np.zeros((max_len,max_len))
+       black_img = Image.fromarray(black,mode='RGB')
+       black_img.paste(img,(diff,0))
+       black_img.save(f'/content/Dataset/{img_save_path}')
+   ```
 
 * Results:
 
@@ -60,9 +61,7 @@ elif w>h:
   Output: 
 
   <img src='https://github.com/SVGS-EVA4/Phase2/blob/master/S2-MobileNets_and_ShuffleNets/images/pad_output.png'/>
-  
- * This approach was followed for the entire dataset.
- * Later during training we applied the resize augmentation technique of albumentations library to convert all the images to 224x224.
+ 
 
 ## Model Architecture:
 * We applied transfer learning on the pretrained Mobilenet v2 model.
