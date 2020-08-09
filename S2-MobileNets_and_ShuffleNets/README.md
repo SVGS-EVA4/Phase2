@@ -27,7 +27,7 @@ Training MobileNet-V2(transfer learning) on a custom dataset with 4 classes - Sm
     * For an image which has a larger width compared to it's height, we padded the image along the width of the image.
     * For an image which has a larger height compared to it's width, we padded the image along the height of the image.    
 * Following is the code:
-   ```
+   ```python
 
    img_file_path = '/content/dataset/Small_QuadCopters/Small_QuadCopters_1.jpg'
    img = Image.open(img_file_path).convert('RGB')
@@ -69,7 +69,7 @@ Training MobileNet-V2(transfer learning) on a custom dataset with 4 classes - Sm
 * So we altered the classifier layer of the model to produce an output of 4 classes.Following is the code:
 
     The original layers:
-    ```
+    ```python
     (classifier): Sequential(
         (0): Dropout(p=0.2, inplace=False)
         (1): Linear(in_features=1280, out_features=1000, bias=True) 
@@ -77,7 +77,7 @@ Training MobileNet-V2(transfer learning) on a custom dataset with 4 classes - Sm
     )
     ```
     Modification:
-    ```
+    ```python
     (classifier): Sequential(
         (0): Dropout(p=0.2, inplace=False)
         (1): Sequential(
