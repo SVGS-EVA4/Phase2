@@ -13,12 +13,16 @@ Training MobileNet-V2(transfer learning) on a custom dataset with 4 classes - Sm
 
 <img src='https://github.com/SVGS-EVA4/Phase2/blob/master/S2-MobileNets_and_ShuffleNets/images/insomia_output.JPG'/>
 
-## Stats:
+## Result:
 * Best Train Accuracy: 89.17%
 * Best Test Accuracy: 89.28%
 * Epochs: 20 
 
-## Resizing Strategy:
+## Dataset
+
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S2-MobileNets_and_ShuffleNets/images/dataset_viz1.PNG)
+
+### Resizing Strategy:
 * The dataset consisted of non-square images of different sizes.
 * So we converted all the images to square images by padding them.
 * Later during training we applied the resize augmentation technique of albumentations library to convert all the images to 224x224.
