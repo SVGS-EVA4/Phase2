@@ -30,7 +30,9 @@
    * Large_QuadCopters : 80.0%
    * Flying_Birds : 98.93%
    
-## Dataset Stats
+## Dataset 
+
+### Data Statistics
 
 <img src= "https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S2-MobileNets_and_ShuffleNets/images/dataset_viz1.PNG" width = "400">
 
@@ -106,7 +108,23 @@
 
 <p align="center"><img src='https://github.com/SVGS-EVA4/Phase2/blob/master/S2-MobileNets_and_ShuffleNets/images/misclassified_classwise.png' height = "1600" /></p>
 
-## Observation:
+## Observations:
+
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S2-MobileNets_and_ShuffleNets/images/conf_matrix.PNG)
+
 * By looking at the misclassified images we can observe that there are lot of misclassification between large quadcopters and small quadcopters. Model is confused between the two, as there is not much difference between them.
 * Some are correctly classified, but the actual labels themselves are incorrect.
 * Flying birds are mostly classified as winged drones, biased by the wings of birds.
+
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S2-MobileNets_and_ShuffleNets/images/report.PNG)
+
+* In the above image, 0 denotes **Winged Drone**, 1 denotes **Small Quadcopters**, 2 denotes **Large Quadcopters** and 3 denotes **Flying Birds**. From the above image, we can see that:
+
+1) **Flying Birds** have the perfect precision and recall implying that almost all flying bird images are correctly classified.
+
+2) **Small and Large Quadcopters** seem to have the least precision and recall.
+
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S2-MobileNets_and_ShuffleNets/images/confusion_matrix.PNG)
+
+* In the above image, we can see the reasons for above mentioned observation. Many of the images in Large Quadcopters are wrongly classified as Winged Drones and Small Quadcopters. If we delve further into this by going into the dataset for inspecting images, we would find many winged drones and small quadcopters images being wrongly labelled by humans as large quadcopters. Similar is the case with small quadcopters.
+
