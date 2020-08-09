@@ -13,7 +13,7 @@
 | Raw Dataset          | [click here](https://drive.google.com/file/d/1-EvvUU6K6RzNVgEibT3oP1SFb_epRNbI/view?usp=sharing)  |
 | Preprocessed DataSet |[click here](https://drive.google.com/file/d/1sJ8EngUpwcTT7tbqRhqQijbm-nGLuVF9/view?usp=sharing)   |
 | Labels               |[click here](https://drive.google.com/file/d/1-5KNd0rNceRdtxWqvlG_3w9VnY37Bkc5/view?usp=sharing)   |
-| End Point            | https://865fgqaq94.execute-api.ap-south-1.amazonaws.com/dev/classification                        |
+| Final Model          |[click here](https://drive.google.com/file/d/1ZgRsnAXnrx4vruxRbboSqwMOVl0rL_MC/view?usp=sharing)   |
 
 
 <b>Insomia Output:</b>
@@ -99,7 +99,7 @@
 
 ## Misclassified Images: 
 
-<p align="center"><img src='https://github.com/SVGS-EVA4/Phase2/blob/master/S2-MobileNets_and_ShuffleNets/images/misclassified_classwise.png' height = "800" /></p>
+<p align="center"><img src='https://github.com/SVGS-EVA4/Phase2/blob/master/S2-MobileNets_and_ShuffleNets/images/misclassified_classwise.png' height = "1600" /></p>
 
 ## Observation:
 * By seeing at the misclassified images we can observe that there are lot of misclassification between large quadcopters and small quadcopters. Model is confused between those 2, as ther is not much difference between them.
