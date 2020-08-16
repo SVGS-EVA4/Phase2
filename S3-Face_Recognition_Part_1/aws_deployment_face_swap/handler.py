@@ -296,23 +296,23 @@ def swap_face(event, context):
         print('body loaded')
         print(content_type_header)
         picture1 = decoder.MultipartDecoder(body,content_type_header).parts[0]
-		picture2 = decoder.MultipartDecoder(body,content_type_header).parts[1]
+        picture2 = decoder.MultipartDecoder(body,content_type_header).parts[1]
 
         ####################################################################################################
         print(picture1)
         im_arr1 = np.frombuffer(picture1.content, dtype=np.uint8)
         print(picture2)
-		im_arr2 = np.frombuffer(picture2.content, dtype=np.uint8)
+        im_arr2 = np.frombuffer(picture2.content, dtype=np.uint8)
 		
         img1 = cv2.imdecode(im_arr1, flags=cv2.IMREAD_COLOR)
-		img2 = cv2.imdecode(im_arr2, flags=cv2.IMREAD_COLOR)
-		print(img1==img2)
+        img2 = cv2.imdecode(im_arr2, flags=cv2.IMREAD_COLOR)
+        print(img1==img2)
         print('img decoded')
 		
-		im1Display = cv2.cvtColor(img1, cv2.COLOR_BGR2RGB)
-		im2Display = cv2.cvtColor(img2, cv2.COLOR_BGR2RGB)
+        im1Display = cv2.cvtColor(img1, cv2.COLOR_BGR2RGB)
+        im2Display = cv2.cvtColor(img2, cv2.COLOR_BGR2RGB)
 
-		img1Warped = np.copy(img2)
+        img1Warped = np.copy(img2)
 
         faceDetector = dlib.get_frontal_face_detector()
         landmarkDetector = dlib.shape_predictor(predictor_path)
@@ -327,7 +327,7 @@ def swap_face(event, context):
             },
             'body': json.dumps({ 'Status':'IncorrectInput','Result':'No face detected which should be swapped on front.','ImageBytes': ''  })
             }
-		elif len(faceDetector(img2,0)) == 0:
+        elif len(faceDetector(img2,0)) == 0:
             return {
             'statusCode': 200,
             'headers':{
@@ -337,7 +337,7 @@ def swap_face(event, context):
             },
             'body': json.dumps({ 'Status':'IncorrectInput','Result':'No face detected upon which face should be swapped.','ImageBytes': ''  })
             }
-		elif len(faceDetector(img1,0)) == 0 and len(faceDetector(img2,0)) == 0:
+        elif len(faceDetector(img1,0)) == 0 and len(faceDetector(img2,0)) == 0:
             return {
             'statusCode': 200,
             'headers':{
@@ -349,71 +349,71 @@ def swap_face(event, context):
             }
         else:
             points1 = getLandmarks(faceDetector,landmarkDetector,img1)
-			points2 = getLandmarks(faceDetector,landmarkDetector,img2)
+            points2 = getLandmarks(faceDetector,landmarkDetector,img2)
 			
             print('landmarks1= ',points1)
             print(len(points1))
 			
-			print('landmarks2= ',points2)
+            print('landmarks2= ',points2)
             print(len(points2))
 			
-			# Find convex hull
-			hullIndex = cv2.convexHull(np.array(points2), returnPoints=False)
+            # Find convex hull
+            hullIndex = cv2.convexHull(np.array(points2), returnPoints=False)
 
-			# Create convex hull lists
-			hull1 = []
-			hull2 = []
-			for i in range(0, len(hullIndex)):
-				hull1.append(points1[hullIndex[i][0]])
-				hull2.append(points2[hullIndex[i][0]])
-			
-			# Calculate Mask for Seamless cloning
-			hull8U = []
-			for i in range(0, len(hull2)):
-				hull8U.append((hull2[i][0], hull2[i][1]))
+            # Create convex hull lists
+            hull1 = []
+            hull2 = []
+            for i in range(0, len(hullIndex)):
+              hull1.append(points1[hullIndex[i][0]])
+              hull2.append(points2[hullIndex[i][0]])
+            
+            # Calculate Mask for Seamless cloning
+            hull8U = []
+            for i in range(0, len(hull2)):
+              hull8U.append((hull2[i][0], hull2[i][1]))
 
-			mask = np.zeros(img2.shape, dtype=img2.dtype) 
-			cv2.fillConvexPoly(mask, np.int32(hull8U), (255, 255, 255))
+            mask = np.zeros(img2.shape, dtype=img2.dtype) 
+            cv2.fillConvexPoly(mask, np.int32(hull8U), (255, 255, 255))
 
-			# Find Centroid
-			m = cv2.moments(mask[:,:,1])
-			center = (int(m['m10']/m['m00']), int(m['m01']/m['m00']))
-			
-			# Find Delaunay traingulation for convex hull points
-			sizeImg2 = img2.shape    
-			rect = (0, 0, sizeImg2[1], sizeImg2[0])
+            # Find Centroid
+            m = cv2.moments(mask[:,:,1])
+            center = (int(m['m10']/m['m00']), int(m['m01']/m['m00']))
+            
+            # Find Delaunay traingulation for convex hull points
+            sizeImg2 = img2.shape    
+            rect = (0, 0, sizeImg2[1], sizeImg2[0])
 
-			dt = calculateDelaunayTriangles(rect, hull2)
+            dt = calculateDelaunayTriangles(rect, hull2)
 
-			# If no Delaunay Triangles were found, quit
-			if len(dt) == 0:
-				quit()
-			
-			imTemp1 = im1Display.copy()
-			imTemp2 = im2Display.copy()
+            # If no Delaunay Triangles were found, quit
+            if len(dt) == 0:
+              quit()
+            
+            imTemp1 = im1Display.copy()
+            imTemp2 = im2Display.copy()
 
-			tris1 = []
-			tris2 = []
-			for i in range(0, len(dt)):
-				tri1 = []
-				tri2 = []
-				for j in range(0, 3):
-					tri1.append(hull1[dt[i][j]])
-					tri2.append(hull2[dt[i][j]])
+            tris1 = []
+            tris2 = []
+            for i in range(0, len(dt)):
+              tri1 = []
+              tri2 = []
+              for j in range(0, 3):
+                tri1.append(hull1[dt[i][j]])
+                tri2.append(hull2[dt[i][j]])
 
-				tris1.append(tri1)
-				tris2.append(tri2)
+              tris1.append(tri1)
+              tris2.append(tri2)
 
 
-			# Simple Alpha Blending
-			# Apply affine transformation to Delaunay triangles
-			for i in range(0, len(tris1)):
-				warpTriangle(img1, img1Warped, tris1[i], tris2[i])
+            # Simple Alpha Blending
+            # Apply affine transformation to Delaunay triangles
+            for i in range(0, len(tris1)):
+              warpTriangle(img1, img1Warped, tris1[i], tris2[i])
 
-			# Clone seamlessly.
-			output = cv2.seamlessClone(np.uint8(img1Warped), img2, mask, center, cv2.NORMAL_CLONE)
-			
-			img = Image.fromarray(output[:,:,::-1])
+            # Clone seamlessly.
+            output = cv2.seamlessClone(np.uint8(img1Warped), img2, mask, center, cv2.NORMAL_CLONE)
+            
+            img = Image.fromarray(output[:,:,::-1])
             print('converting to bytes')
             byte_arr = io.BytesIO()
             print('encoding image bytes to base64')
