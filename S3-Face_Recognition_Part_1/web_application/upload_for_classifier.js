@@ -26,7 +26,11 @@ function uploadAndClassifyImageMobilenet(){
     })
     .done(function(response){
         console.log(response);
-        document.getElementById('result1').textContent = response;
+        let file_name = (JSON.parse(response)).File;
+        let predictions = (JSON.parse(response))['Predicted Class'];
+        document.getElementById('result1').textContent ='Classify Image: ' ;
+        document.getElementById('result1a').textContent ='File: '+file_name ;
+        document.getElementById('result1b').textContent = 'Prediction: '+predictions ;  
     })
     .fail(function(){
         alert('Error during prediction');
@@ -64,7 +68,11 @@ function uploadAndClassifyImageFourClass(){
     })
     .done(function(response){
         console.log(response);
-        document.getElementById('result2').textContent = response;
+        let file_name1 = (JSON.parse(response)).File;
+        let predictions1 = (JSON.parse(response))['Predicted Class'];
+        document.getElementById('result2').textContent ='Classify Birds and Drones: ' ;
+        document.getElementById('result2a').textContent ='File: '+file_name1 ;
+        document.getElementById('result2b').textContent = 'Prediction: '+predictions1 ; 
     })
     .fail(function(){
         alert('Error during prediction');
@@ -72,19 +80,4 @@ function uploadAndClassifyImageFourClass(){
 };
 
 $('#btnUploadFourClass').click(uploadAndClassifyImageFourClass);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
