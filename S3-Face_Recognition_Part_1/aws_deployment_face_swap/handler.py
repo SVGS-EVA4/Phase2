@@ -296,27 +296,28 @@ def swap_face(event, context):
         print('body loaded')
         print(content_type_header)
         picture1 = decoder.MultipartDecoder(body,content_type_header).parts[0]
-		picture2 = decoder.MultipartDecoder(body,content_type_header).parts[0]
+		picture2 = decoder.MultipartDecoder(body,content_type_header).parts[1]
 
         ####################################################################################################
         print(picture1)
         im_arr1 = np.frombuffer(picture1.content, dtype=np.uint8)
-        print('picture2')
+        print(picture2)
 		im_arr2 = np.frombuffer(picture2.content, dtype=np.uint8)
 		
-        im1 = cv2.imdecode(im_arr1, flags=cv2.IMREAD_COLOR)
-		im2 = cv2.imdecode(im_arr2, flags=cv2.IMREAD_COLOR)
+        img1 = cv2.imdecode(im_arr1, flags=cv2.IMREAD_COLOR)
+		img2 = cv2.imdecode(im_arr2, flags=cv2.IMREAD_COLOR)
+		print(img1==img2)
         print('img decoded')
 		
-		im1Display = cv2.cvtColor(im1, cv2.COLOR_BGR2RGB)
-		im2Display = cv2.cvtColor(im2, cv2.COLOR_BGR2RGB)
-		
-		img1Warped = np.copy(im2)
+		im1Display = cv2.cvtColor(img1, cv2.COLOR_BGR2RGB)
+		im2Display = cv2.cvtColor(img2, cv2.COLOR_BGR2RGB)
+
+		img1Warped = np.copy(img2)
 
         faceDetector = dlib.get_frontal_face_detector()
         landmarkDetector = dlib.shape_predictor(predictor_path)
         print('initialized detectors')
-        if len(faceDetector(im1,0)) == 0:
+        if len(faceDetector(img1,0)) == 0:
             return {
             'statusCode': 200,
             'headers':{
@@ -326,7 +327,7 @@ def swap_face(event, context):
             },
             'body': json.dumps({ 'Status':'IncorrectInput','Result':'No face detected which should be swapped on front.','ImageBytes': ''  })
             }
-		elif len(faceDetector(im2,0)) == 0:
+		elif len(faceDetector(img2,0)) == 0:
             return {
             'statusCode': 200,
             'headers':{
@@ -336,7 +337,7 @@ def swap_face(event, context):
             },
             'body': json.dumps({ 'Status':'IncorrectInput','Result':'No face detected upon which face should be swapped.','ImageBytes': ''  })
             }
-		elif len(faceDetector(im1,0)) == 0 and len(faceDetector(im2,0)) == 0:
+		elif len(faceDetector(img1,0)) == 0 and len(faceDetector(img2,0)) == 0:
             return {
             'statusCode': 200,
             'headers':{
@@ -347,8 +348,8 @@ def swap_face(event, context):
             'body': json.dumps({ 'Status':'IncorrectInput','Result':'No faces detected','ImageBytes': ''  })
             }
         else:
-            points1 = getLandmarks(faceDetector,landmarkDetector,im1)
-			points2 = getLandmarks(faceDetector,landmarkDetector,im2)
+            points1 = getLandmarks(faceDetector,landmarkDetector,img1)
+			points2 = getLandmarks(faceDetector,landmarkDetector,img2)
 			
             print('landmarks1= ',points1)
             print(len(points1))
@@ -402,6 +403,7 @@ def swap_face(event, context):
 
 				tris1.append(tri1)
 				tris2.append(tri2)
+
 
 			# Simple Alpha Blending
 			# Apply affine transformation to Delaunay triangles
