@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Swap</title>
+</head>
+<body>
+    <a href='./classify.html'>Face Swap</a>
+    <br/>
+    <br/>
+    <label for='fileUpload'>Upload front image</label>
+    <input type='file' id='fileUpload' onchange="loadFile(event)">
+	
+	<label for='imgFileUpload'>Upload back image</label>
+    <input type='file' id='imgFileUpload' onchange="loadImage(event)">
+
+    <input type="button" id='btnUpload' class="button"  value="Swap Face">
+    <br/>
+    <img id="input" width="200" />	
+	<img id="img" width="200" />	
+    <span id='spantag'><img id='result' src='' alt='result' width="200" /></span>
+    <br/>
+    <p id='error'></p>
+    
+</body>
+<script>
+var loadFile = function(event) {
+	var image = document.getElementById('input');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+var loadImage = function(event) {
+	var image = document.getElementById('img');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+</script>
+<script src="jquery-3.3.1.min.js"></script>
+<script src="upload_for_face_alignment.js"></script>
+</html>
