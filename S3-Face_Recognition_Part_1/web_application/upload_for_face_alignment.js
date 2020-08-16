@@ -26,8 +26,19 @@ function uploadAndAlignFace(){
     })
     .done(function(response){
         console.log('hello')
-        
-        document.getElementById('result').src = 'data:image/jpeg;base64,'+(JSON.parse(response)).ImageBytes;
+        console.log(response);
+        if (((JSON.parse(response)).Status) =='IncorrectInput'){
+            document.getElementById('result').src = '/';
+            document.getElementById('error').textContent = 'No faces detected';
+        }
+        else{
+            // var spantag = document.getElementById('spantag');
+            // var imgtag = document.createElement("IMG");
+            // spantag.appendChild(imgtag)
+            // <img id='result' src='/' alt='result' width="200" />
+            document.getElementById('error').textContent = '';
+            document.getElementById('result').src = 'data:image/jpeg;base64,'+(JSON.parse(response)).ImageBytes;
+        }
     })
     .fail(function(){
         alert('Error during prediction');
@@ -35,19 +46,3 @@ function uploadAndAlignFace(){
 };
 
 $('#btnUpload').click(uploadAndAlignFace);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
