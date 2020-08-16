@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #1e4471;
+  padding: 15px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 20%;
+  height: 900px; /* only for demonstration, should be removed */
+  background:#ced4da;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #f1f1f1;
+  height: 300px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #1e4471;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+
+
+<header>
+  <h2>EVA Assignment Works</h2>
+  <h6>SVGS Group</h6>
+</header>
+
+<section>
+  <nav>
+    <ul>
+        <li><a href="#"><h5><span>Team </span></h5></a> </li>
+        <li><a href="https://svgs-eva.s3.ap-south-1.amazonaws.com/classify.html"><h5><span>Classify Images </span></h5></a> </li>
+        <li><a href="https://svgs-eva.s3.ap-south-1.amazonaws.com/face_align.html"><h5><span>Face Alignment </span></h5></a> </li>
+        <li><a href="https://svgs-eva.s3.ap-south-1.amazonaws.com/swapFace.html"><h5><span>Face Swaping </span></h5></a> </li>
+        
+      
+    </ul>
+  </nav>
+  
+  
+    
+</section>
+
+<footer>
+  <p>The School of AI </p>
+</footer>
+
+</body>
+</html>
