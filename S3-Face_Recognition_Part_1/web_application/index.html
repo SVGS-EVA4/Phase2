@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href='./classify.html'>Classification</a>
+    <br/>
+    <br/>
+    <label for='fileUpload'>Upload file</label>
+    <input type='file' id='fileUpload' onchange="loadFile(event)">
+    <input type="button" id='btnUpload' class="button"  value="Classify Image">
+    <br/>
+    <img id="input" width="200" />	
+    <img id='result' src='/' alt='result' width="200" />
+    <br/>
+    <p id='error'></p>
+    
+</body>
+<script>
+var loadFile = function(event) {
+	var image = document.getElementById('input');
+	image.src = URL.createObjectURL(event.target.files[0]);
+};
+</script>
+<script src="jquery-3.3.1.min.js"></script>
+<script src="upload_for_face_alignment.js"></script>
+</html>
