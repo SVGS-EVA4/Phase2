@@ -28,9 +28,9 @@ function uploadAndClassifyImageMobilenet(){
         console.log(response);
         let file_name = (JSON.parse(response)).File;
         let predictions = (JSON.parse(response))['Predicted Class'];
-        document.getElementById('result1').textContent ='Classify Image: ' ;
-        document.getElementById('result1a').textContent ='File: '+file_name ;
-        document.getElementById('result1b').textContent = 'Prediction: '+predictions ;  
+        // document.getElementById('result1').textContent ='Classify Image: ' ;
+        document.getElementById('result1a').textContent =predictions + '!!!';
+        document.getElementById('result1b').textContent = 'Pretrained Resnet Model says it as '  ;  
     })
     .fail(function(){
         alert('Error during prediction');
@@ -70,9 +70,9 @@ function uploadAndClassifyImageFourClass(){
         console.log(response);
         let file_name1 = (JSON.parse(response)).File;
         let predictions1 = (JSON.parse(response))['Predicted Class'];
-        document.getElementById('result2').textContent ='Classify Birds and Drones: ' ;
-        document.getElementById('result2a').textContent ='File: '+file_name1 ;
-        document.getElementById('result2b').textContent = 'Prediction: '+predictions1 ; 
+        // document.getElementById('result2').textContent ='Classify Birds and Drones: ' ;
+        document.getElementById('result2a').textContent =predictions1+'!!!' ;
+        document.getElementById('result2b').textContent = 'Custom pretrained Mobilenet says it as  ' ; 
     })
     .fail(function(){
         alert('Error during prediction');

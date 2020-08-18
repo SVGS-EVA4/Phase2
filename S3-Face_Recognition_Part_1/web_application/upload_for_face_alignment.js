@@ -38,6 +38,7 @@ function uploadAndAlignFace(){
             // <img id='result' src='/' alt='result' width="200" />
             document.getElementById('error').textContent = '';
             document.getElementById('result').src = 'data:image/jpeg;base64,'+(JSON.parse(response)).ImageBytes;
+            document.getElementById('result').style.display = 'inherit'
         }
     })
     .fail(function(){

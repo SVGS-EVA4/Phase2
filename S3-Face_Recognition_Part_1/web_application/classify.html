@@ -4,22 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classification</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
+<style>
+    body{
+        text-align: center;
+    }
+    .heading{
+        text-align: center;
+       
+        color:blue;
+        margin : 2rem 3rem;
+        
+    }
+    .main-division{
+        border: 1px solid black;
+        padding: 3rem 3rem;
+        margin: 3rem 15rem;
+    }
+    #result{
+        display: none;
+        margin:1rem 2rem;
+    }
+    #input{
+        margin: 1rem 2rem;
+        display: none;
+    }
+    .desc{
+        margin: 1rem 5rem;
+    }
+    .nav{
+        display:flex;
+        background: black;
+        color: white;
+        margin : 1rem 2rem;
+        padding: 1rem 2rem;
+        text-align: center;
+        justify-content: center;
+      
+    }
+    .nav-element{
+        
+        margin: 0rem 2rem;
+        font-weight:500;
+
+    }
+    .nav-element:hover{
+        text-decoration:none;
+        color:white
+    }
+    #error{
+        color: red;
+        font-weight:bolder;
+    }
+    #result2b, #result1b{
+        font-size: x-large;
+        font-weight: bold;
+    }
+    #result1a, #result2a{
+        color: red;
+        font-weight: bold;
+        font-size: x-large;
+    }
+</style>
 <body>
-    <a href='./face_align.html'>Face Alignment</a>
+     <!-- <a href='./face_align.html'>Face Alignment</a> -->
+    <!-- <br/>
+    <br/> --> 
+    <div class = "nav">
+        <div></div>
+         <a class = 'nav-element' href='./classify.html'>Classification</a> 
+         <a class = 'nav-element' href='./face_align.html'>Face Alignment</a> 
+         <a class = 'nav-element' href='./swapFace.html'>Face Swap</a> 
+    </div>
     <br/>
-    <br/>
+    <h1 class = "heading">Classify </h1>
+    <div class = "main-division">
     <label for='fileUpload'>Upload file</label>
     <input type='file' id='fileUpload'>
     <input type="button" id='btnUploadMobilenet' class="button" value="Classify Image">
     <input type="button" id='btnUploadFourClass' class="button" value="Classify Birds and Drones">
     <br/>
-    <p id='result1'><p/>
-    <p id='result1a'><p/>
-    <p id='result1b'><p/>
-    <p id='result2'><p/>
-    <p id='result2a'><p/>
-    <p id='result2b'><p/>
+    <p id='result1'></p>
+    
+    <span id='result1b'></span><span id='result1a'></span>
+    <p id='result2'></p>
+    
+    <span id='result2b'></span><span id='result2a'></span>
+    </div>
 
 </body>
 <script src="jquery-3.3.1.min.js"></script>
