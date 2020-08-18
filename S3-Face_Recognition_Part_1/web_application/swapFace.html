@@ -13,7 +13,7 @@
     .heading{
         text-align: center;
        
-        color:blue;
+        color: #103a47;
         margin : 2rem 3rem;
         
     }
@@ -35,7 +35,8 @@
     }
     .nav{
         display:flex;
-        background: black;
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
         color: white;
         margin : 1rem 2rem;
         padding: 1rem 2rem;
@@ -47,6 +48,7 @@
         
         margin: 0rem 2rem;
         font-weight:500;
+        color : white;
 
     }
     .nav-element:hover{
@@ -62,7 +64,7 @@
         font-weight: bold;
     }
     #result1a, #result2a{
-        color: red;
+        color: crimson;
         font-weight: bold;
         font-size: x-large;
     }
@@ -82,6 +84,8 @@
     <br/>
 
     <h1 class = "heading">Face Swap </h1>
+    <p class = "desc"><strong>Do you wonder how it would be if the persons face is swapped with other person face. Do you want to try it? Then try bellow. It's awesome</strong></p>
+   
     
     <div class = "main-division">
     <div class = "upload">
@@ -92,7 +96,7 @@
     <input type='file' id='imgFileUpload' onchange="loadImage(event)">
     </div>
     <br/>
-    <input type="button" id='btnUpload' class="button btn btn-primary"  value="Swap Face">
+    <input type="button" id='btnUpload' class="button btn btn-primary"  value="Click to see magic">
     <br>
     <img id="input" height="300" />	
 	<img id="img" height="300" />	
