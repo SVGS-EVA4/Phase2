@@ -13,7 +13,7 @@ function uploadAndClassifyImageMobilenet(){
         async: true,
         crossDomain: true,
         method: 'POST',
-        url:'https://l485dsw7nc.execute-api.ap-south-1.amazonaws.com/dev/classify',
+        url:'https://xxxxxx.execute-api.ap-south-1.amazonaws.com/dev/classify',
         data: formData,
         processData: false,
         
@@ -54,7 +54,7 @@ function uploadAndClassifyImageFourClass(){
         async: true,
         crossDomain: true,
         method: 'POST',
-        url:'https://865fgqaq94.execute-api.ap-south-1.amazonaws.com/dev/classification',
+        url:'https://xxxxxx.execute-api.ap-south-1.amazonaws.com/dev/classification',
         
         data: formData,
         processData: false,
