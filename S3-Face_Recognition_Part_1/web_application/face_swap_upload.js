@@ -22,7 +22,7 @@ function uploadAndSwapFace(){
         async: true,
         crossDomain: true,
         method: 'POST',
-        url:'https://7odoljgr3c.execute-api.ap-south-1.amazonaws.com/dev/swap_face',
+        url:'https://xxxxxxx.execute-api.ap-south-1.amazonaws.com/dev/swap_face',
         data: formData,
         processData: false,
         
