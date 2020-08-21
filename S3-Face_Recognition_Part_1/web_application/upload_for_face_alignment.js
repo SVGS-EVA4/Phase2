@@ -13,7 +13,7 @@ function uploadAndAlignFace(){
         async: true,
         crossDomain: true,
         method: 'POST',
-        url:'https://7odoljgr3c.execute-api.ap-south-1.amazonaws.com/dev/face_alignment',
+        url:'https://xxxxxx.execute-api.ap-south-1.amazonaws.com/dev/face_alignment',
         data: formData,
         processData: false,
         
