@@ -1,6 +1,5 @@
 service: face-recognition
 
-
 provider:
   name: aws
   runtime: python3.8
@@ -46,6 +45,16 @@ functions:
     events:
       - http:
           path: face_alignment
+          method: post
+          cors: true
+  
+  face_swap:
+    handler: handler.face_swap
+    memorySize: 3008
+    timeout: 30
+    events:
+      - http:
+          path: face_swap
           method: post
           cors: true
 
