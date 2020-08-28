@@ -17,110 +17,11 @@ print('Imported dlib')
 import numpy as np
 import math
 import io
+from helperFunctions import *
 print('Import COmplete')
 
-predictor_path = 'shape_predictor_5_face_landmarks.dat'
+predictor_path = 'shape_predictor_68_face_landmarks.dat'
 print('loaded landmarks file')
-
-
-
-# detect facial landmarks in image
-def getLandmarks(faceDetector, landmarkDetector, im, FACE_DOWNSAMPLE_RATIO = 1):
-    points = []
-    imSmall = cv2.resize(im,None,
-                       fx=1.0/FACE_DOWNSAMPLE_RATIO, 
-                       fy=1.0/FACE_DOWNSAMPLE_RATIO, 
-                       interpolation = cv2.INTER_LINEAR)
-  
-    faceRects = faceDetector(imSmall, 0)
-  
-    if len(faceRects) > 0:
-        maxArea = 0
-        maxRect = None
-        # TODO: test on images with multiple faces
-        for face in faceRects:
-            if face.area() > maxArea:
-                maxArea = face.area()
-                maxRect = [face.left(),
-                        face.top(),
-                        face.right(),
-                        face.bottom()
-                        ]
-    
-        rect = dlib.rectangle(*maxRect)
-        scaledRect = dlib.rectangle(int(rect.left()*FACE_DOWNSAMPLE_RATIO),
-                                int(rect.top()*FACE_DOWNSAMPLE_RATIO),
-                                int(rect.right()*FACE_DOWNSAMPLE_RATIO),
-                                int(rect.bottom()*FACE_DOWNSAMPLE_RATIO))
-        
-        landmarks = landmarkDetector(im, scaledRect)
-        points = dlibLandmarksToPoints(landmarks)
-    return points
-
-# convert Dlib shape detector object to list of tuples
-def dlibLandmarksToPoints(shape):
-    points = []
-    for p in shape.parts():
-        pt = (p.x, p.y)
-        points.append(pt)
-    return points
-
-# Compute similarity transform given two sets of two points.
-# OpenCV requires 3 pairs of corresponding points.
-# We are faking the third one.
-def similarityTransform(inPoints, outPoints):
-    s60 = math.sin(60*math.pi/180)
-    c60 = math.cos(60*math.pi/180)
-
-    inPts = np.copy(inPoints).tolist()
-    outPts = np.copy(outPoints).tolist()
-
-    # The third point is calculated so that the three points make an equilateral triangle
-    xin = c60*(inPts[0][0] - inPts[1][0]) - s60*(inPts[0][1] - inPts[1][1]) + inPts[1][0]
-    yin = s60*(inPts[0][0] - inPts[1][0]) + c60*(inPts[0][1] - inPts[1][1]) + inPts[1][1]
-
-    inPts.append([np.int(xin), np.int(yin)])
-
-    xout = c60*(outPts[0][0] - outPts[1][0]) - s60*(outPts[0][1] - outPts[1][1]) + outPts[1][0]
-    yout = s60*(outPts[0][0] - outPts[1][0]) + c60*(outPts[0][1] - outPts[1][1]) + outPts[1][1]
-
-    outPts.append([np.int(xout), np.int(yout)])
-
-    # Now we can use estimateAffine2D for calculating the similarity transform.
-    tform = cv2.estimateAffine2D(np.array([inPts]), np.array([outPts]), False)
-    return tform
-
-def normalizeImagesAndLandmarks(outSize,imIn,pointsIn):
-
-    h, w = outSize
-
-    # Corners of the eye in the input image
-    if len(pointsIn) == 68:
-        eyecornerSrc = [pointsIn[36],pointsIn[45]]
-    elif len(pointsIn) == 5:
-        eyecornerSrc = [pointsIn[2],pointsIn[0]]
-
-    # Corners of the eye i  normalized image
-    eyecornerDst = [(np.int(0.3*w),np.int(h/3)),(np.int(0.7*w),np.int(h/3))]
-
-    # Calculate similarity transform
-    tform = similarityTransform(eyecornerSrc, eyecornerDst)
-
-    imOut = np.zeros(imIn.shape, dtype=imIn.dtype)
-
-    # Apply similarity transform to input image
-    imOut = cv2.warpAffine(imIn, tform[0], (w,h))
-
-    # reshape pointsIn from numLandmarks x 2 to  numLandmarks x 1 x 2
-    points2 = np.reshape(pointsIn,(pointsIn.shape[0],1,pointsIn.shape[1]))
-
-    # Apply similarity transform to landmarks
-    pointsOut = cv2.transform(points2,tform[0])
-
-    # reshape pointsOut to numLandmarks x 2
-    pointsOut = np.reshape(pointsOut,(pointsIn.shape[0],pointsIn.shape[1]))
-
-    return imOut, pointsOut
 
 
 def align_face(event, context):
@@ -184,6 +85,134 @@ def align_face(event, context):
                 },
                 'body': json.dumps({ 'Status':'Success','Result':'Faces detected','ImageBytes': encoded_img  })
             }
+    except Exception as e:
+        print(repr(e))
+        return {
+            'statusCode': 500,
+            'headers':{
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': True
+            },
+            'body': json.dumps({ 'Status':'Error','Result':'Error','error': repr(e) })
+        }
+
+def face_swap(event,context):
+
+    try:
+        # Read images
+
+        content_type_header = event['headers']['content-type']
+        print(event['body'])
+        body = base64.b64decode(event['body'])
+        print('body loaded')
+        print(content_type_header)
+
+        picture1 = decoder.MultipartDecoder(body,content_type_header).parts[0]
+        print(picture1)
+        im_arr1 = np.frombuffer(picture1.content, dtype=np.uint8)
+        print('picture1')
+        img1 = cv2.imdecode(im_arr1, flags=cv2.IMREAD_COLOR)
+        print('img1 decoded')
+
+        picture2 = decoder.MultipartDecoder(body,content_type_header).parts[0]
+        print(picture2)
+        im_arr2 = np.frombuffer(picture2.content, dtype=np.uint8)
+        print('picture2')
+        img2 = cv2.imdecode(im_arr2, flags=cv2.IMREAD_COLOR)
+        print('img2 decoded')
+
+
+
+        img1Warped = np.copy(img2)
+
+
+        detector = dlib.get_frontal_face_detector()
+        predictor = dlib.shape_predictor(predictor_path)
+        # Read array of corresponding points
+        points1 = getLandmarks(detector, predictor, img1)
+        points2 = getLandmarks(detector, predictor, img2)
+        if len(detector(img1,0)) == 0 or len(detector(img2,0)) == 0:
+            return {
+            'statusCode': 200,
+            'headers':{
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': True
+            },
+            'body': json.dumps({ 'Status':'IncorrectInput','Result':'No faces detected','ImageBytes': ''  })
+            }
+        else:
+            # Find convex hull
+            hullIndex = cv2.convexHull(np.array(points2), returnPoints=False)
+            print('convex hull generated')
+            # Create convex hull lists
+            hull1 = []
+            hull2 = []
+            for i in range(0, len(hullIndex)):
+                hull1.append(points1[hullIndex[i][0]])
+                hull2.append(points2[hullIndex[i][0]])
+
+            # Calculate Mask for Seamless cloning
+            hull8U = []
+            for i in range(0, len(hull2)):
+                hull8U.append((hull2[i][0], hull2[i][1]))
+
+            mask = np.zeros(img2.shape, dtype=img2.dtype) 
+            cv2.fillConvexPoly(mask, np.int32(hull8U), (255, 255, 255))
+            print('mask created')
+            # Find Centroid
+            m = cv2.moments(mask[:,:,1])
+            center = (int(m['m10']/m['m00']), int(m['m01']/m['m00']))
+
+            # Find Delaunay traingulation for convex hull points
+            sizeImg2 = img2.shape    
+            rect = (0, 0, sizeImg2[1], sizeImg2[0])
+
+            dt = calculateDelaunayTriangles(rect, hull2)
+
+            # If no Delaunay Triangles were found, quit
+            if len(dt) == 0:
+                quit()
+
+            tris1 = []
+            tris2 = []
+            for i in range(0, len(dt)):
+                tri1 = []
+                tri2 = []
+                for j in range(0, 3):
+                    tri1.append(hull1[dt[i][j]])
+                    tri2.append(hull2[dt[i][j]])
+
+                tris1.append(tri1)
+                tris2.append(tri2)
+
+            # Simple Alpha Blending
+            # Apply affine transformation to Delaunay triangles
+            for i in range(0, len(tris1)):
+                warpTriangle(img1, img1Warped, tris1[i], tris2[i])
+                
+            # Clone seamlessly.
+            output = cv2.seamlessClone(np.uint8(img1Warped), img2, mask, center, cv2.NORMAL_CLONE)
+            print('face swapped. Done!')
+            res = Image.fromarray(output[:,:,::-1])
+            print('converting to bytes')
+            byte_arr = io.BytesIO()
+            print('encoding image bytes to base64')
+            res.save(byte_arr, format='JPEG')
+            encoded_img = base64.encodebytes(byte_arr.getvalue()).decode('ascii') 
+            print(encoded_img)
+            
+            return {
+                'statusCode': 200,
+                'headers':{
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Credentials': True
+                },
+                'body': json.dumps({ 'Status':'Success','Result':'Faces Swapped','ImageBytes': encoded_img  })
+            }
+    
     except Exception as e:
         print(repr(e))
         return {
