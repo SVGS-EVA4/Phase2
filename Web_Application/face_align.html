@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Face Alignment</title>
+</head>
+<style>
+    body{
+        text-align: center;
+    }
+    .heading{
+        text-align: center;
+       
+        color:#103a47;
+        margin : 2rem 3rem;
+        
+    }
+    .main-division{
+        border: 1px solid black;
+        padding: 3rem 3rem;
+        margin: 3rem 15rem;
+    }
+    #result{
+        display: none;
+        margin:1rem 2rem;
+    }
+    #input{
+        margin: 1rem 2rem;
+        display: none;
+    }
+    .desc{
+        margin: 1rem 5rem;
+    }
+    .nav{
+        display:flex;
+        background: black;
+        color: white;
+        margin : 1rem 2rem;
+        padding: 1rem 2rem;
+        text-align: center;
+        justify-content: center;
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+      
+    }
+    .nav-element{
+        
+        margin: 0rem 2rem;
+        font-weight:500;
+        color:white;
+
+    }
+    .nav-element:hover{
+        text-decoration:none;
+        color:white
+    }
+    #error{
+        color: red;
+        font-weight:bolder;
+    }
+</style>
+<body>
+    <!-- <a href='./classify.html'>Classification</a>
+    <br/>
+    <br/> -->
+    <div class = "nav">
+        <div></div>
+         <a class = 'nav-element' href='./classify.html'>Classification</a> 
+         <a class = 'nav-element' href='./face_align.html'>Face Alignment</a> 
+         <a class = 'nav-element' href='./swapFace.html'>Face Swap</a> 
+    </div>
+    <br/>
+    <h1 class = "heading">Face Align</h1>
+   
+   
+   <p class = "desc"><strong>Face alignment is the task of identifying the geometric structure of faces in digital images, and attempting to obtain a canonical alignment of the face based on translation, scale, and rotation.</strong></p>
+   <div class = "main-division">
+    <label for='fileUpload'>Choose file to Align Face</label>
+    <input type='file' id='fileUpload' onchange="loadFile(event)">
+    
+    
+    <input type="button" id='btnUpload' class="button btn btn-primary"  value="Align Face">
+    <br/>
+    <img id="input" height="300" /> 
+    <span id='spantag'><img id='result' src='/' alt='result' height="300" /></span>
+    <br/>
+    <p id='error'></p>
+  </div>
+    
+</body>
+<script>
+var loadFile = function(event) {
+    var image = document.getElementById('input');
+    image.src = URL.createObjectURL(event.target.files[0]);
+    image.style.display = 'initial'
+};
+</script>
+<script src="jquery-3.3.1.min.js"></script>
+<script src="upload_for_face_alignment.js"></script>
+</html>
