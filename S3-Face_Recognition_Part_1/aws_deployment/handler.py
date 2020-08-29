@@ -115,7 +115,7 @@ def face_swap(event,context):
         img1 = cv2.imdecode(im_arr1, flags=cv2.IMREAD_COLOR)
         print('img1 decoded')
 
-        picture2 = decoder.MultipartDecoder(body,content_type_header).parts[0]
+        picture2 = decoder.MultipartDecoder(body,content_type_header).parts[1]
         print(picture2)
         im_arr2 = np.frombuffer(picture2.content, dtype=np.uint8)
         print('picture2')
