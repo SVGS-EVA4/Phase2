@@ -145,3 +145,9 @@ class JointsMSELoss(nn.Module):
 
         return loss / num_joints
 ```
+
+
+------
+# **Gesture Control Application Demo**
+
+[![Watch the video](https://img.youtube.com/vi/C1ogwC_KVRo/maxresdefault.jpg)](https://youtu.be/C1ogwC_KVRo)
