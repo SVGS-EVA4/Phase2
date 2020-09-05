@@ -1,6 +1,6 @@
 # **Simple Baselines for Human Pose Estimation and Tracking**
 
-[![Paper](https://img.shields.io/badge/Paper-green.svg)](https://arxiv.org/pdf/1804.06208.pdf)
+[![Paper](https://img.shields.io/badge/Paper-blueviolet.svg)](https://arxiv.org/pdf/1804.06208.pdf)
 
 
 1. Human pose estimation is the process of estimating the configuration of the body (pose) from a single, typically monocular, image. 
@@ -36,7 +36,7 @@ heatmaps {H1 . . . Hk} for all k key points.
 three levels of non-linearity (from the deepest feature) are used to obtain highresolution feature maps and heatmaps. 
 
 ## **Pose Tracking Based on Optical Flow**
-[Pose tractking](https://github.com/SVGS-EVA4/Phase2/blob/master/S5-Monocular_Human_Pose_Estimation/images/tracking.png)
+![Pose tractking](https://github.com/SVGS-EVA4/Phase2/blob/master/S5-Monocular_Human_Pose_Estimation/images/tracking.png)
 
 1. Multi-person pose tracking in videos first estimates human poses in frames, and
 then tracks these human pose by assigning a unique identification number (id)
@@ -91,6 +91,7 @@ boxes do not overlap, and in crowed scenes where boxes may not have the correspo
 2. Using pose similarity could also be problematic when the pose of the same person is different across frames due to pose changing.
 
 3. So they proposed to use a **Object Keypoint Similarity(OKS)** which is flow based similarity Index
+<br/>
 ![formula](https://github.com/SVGS-EVA4/Phase2/blob/master/S5-Monocular_Human_Pose_Estimation/images/formula.png)
 
 ## **Flow-based Pose Tracking Algorithm**
