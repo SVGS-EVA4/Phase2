@@ -92,6 +92,7 @@ boxes do not overlap, and in crowed scenes where boxes may not have the correspo
 
 3. So they proposed to use a **Object Keypoint Similarity(OKS)** which is flow based similarity Index
 <br/>
+
 ![formula](https://github.com/SVGS-EVA4/Phase2/blob/master/S5-Monocular_Human_Pose_Estimation/images/formula.png)
 
 ## **Flow-based Pose Tracking Algorithm**
