@@ -81,12 +81,11 @@ def human_pose_estimation(event,context):
         JOINTS = ['r-ankle', 'r-knee', 'r-hip', 'l-hip', 'l-knee', 'l-ankle', 'pelvis', 'thorax', 'upper-neck', 'head-top', 'r-wrist', 'r-elbow', 'r-shoulder', 'l-shoulder', 'l-elbow', 'l-wrist']
         THRESHOLD = 0.5
 
-		# apply image augmentation
+	# apply image augmentation
 
         tensor = transform_image(image_bytes = picture.content)	
         print('aug applied')	
         tensor1 = np.transpose(tensor,(2,0,1))
-        print('tensor1.shape',tensor1.shape)
         tensor1 = tensor1[np.newaxis,... ]
         print('tensor1.shape',tensor1.shape)
         ort_inputs = {ort_session.get_inputs()[0].name: tensor1}
@@ -104,8 +103,7 @@ def human_pose_estimation(event,context):
         image_p = cv2.imdecode(im_arr, flags=cv2.IMREAD_COLOR)
         print('img decoded')
 
-        pose_layers = img_pose
-		
+        pose_layers = img_pose		
         key_points = list(get_keypoints(pose_layers=pose_layers))
 
         print(key_points)
@@ -144,7 +142,7 @@ def human_pose_estimation(event,context):
         byte_arr = io.BytesIO()
         res.save(byte_arr, format='JPEG')
         encoded_img = base64.encodebytes(byte_arr.getvalue()).decode('ascii') 
-        print(encoded_img)
+        print('complete')
         return {
             'statusCode': 200,
             'headers':{
