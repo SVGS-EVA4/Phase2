@@ -10,19 +10,19 @@
  
  ---
  
- ## **Human Pose Estimation** 
+ ## :large_orange_diamond: **Human Pose Estimation** 
  
  <p align = "center"><a href="https://svgs-eva.s3.ap-south-1.amazonaws.com/human_pose.html"><img src = "https://img.shields.io/badge/Website-success.svg"></a></p>
  
  <p align="center"><img src= "https://github.com/SVGS-EVA4/Phase2/blob/master/S5-Monocular_Human_Pose_Estimation/images/human_pose.png" alt = "Human Pose Estimation"></p>
  
-## **Gesture Control Application Demo**
+## :large_orange_diamond:  **Gesture Control Application Demo**
 
 <p align = "center"><a href="https://youtu.be/C1ogwC_KVRo"><img src = "https://img.youtube.com/vi/C1ogwC_KVRo/maxresdefault.jpg" width = "600"></a></p>
 
  ---
 
-## **Simple Baselines for Human Pose Estimation and Tracking**
+##  :large_orange_diamond: **Simple Baselines for Human Pose Estimation and Tracking**
   <p align = "center"><a href = "https://arxiv.org/pdf/1804.06208.pdf"><img src = "https://img.shields.io/badge/Paper-blueviolet.svg"></a></p>
 
 
