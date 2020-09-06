@@ -1,14 +1,14 @@
 <h1 align="center"><bold>Monocular Human Pose Estimation</bold></h1>
 
 # **Assignment**
-*. Read the [paper](https://arxiv.org/pdf/1804.06208.pdf) and write a detailed readme file describing the model architecture as well as the JointsMSELoss class
-*.Download the smallest [model](https://onedrive.live.com/?authkey=%21AFkTgCsr3CT9%2D%5FA&id=56B9F9C97F261712%2110709&cid=56B9F9C97F261712) and upload to Lambda for HPE detection
+* Read the [paper](https://arxiv.org/pdf/1804.06208.pdf) and write a detailed readme file describing the model architecture as well as the JointsMSELoss class
+* Download the smallest [model](https://onedrive.live.com/?authkey=%21AFkTgCsr3CT9%2D%5FA&id=56B9F9C97F261712%2110709&cid=56B9F9C97F261712) and upload to Lambda for HPE detection
 <br/>
 
 <p align="center">or</p>
 
 
- *. 1 application of human pose gesture control
+ * 1 application of human pose gesture control
  
  ---
  
@@ -20,13 +20,12 @@
  
 ## **Gesture Control Application Demo**
 
-<a align="center" href="https://youtu.be/C1ogwC_KVRo"><img src = "https://img.youtube.com/vi/C1ogwC_KVRo/maxresdefault.jpg" width = "600"></a>
+<p align = "center"><a href="https://youtu.be/C1ogwC_KVRo"><img src = "https://img.youtube.com/vi/C1ogwC_KVRo/maxresdefault.jpg" width = "600"></a></p>
 
-[![Watch the video](https://img.youtube.com/vi/C1ogwC_KVRo/maxresdefault.jpg {height="360px" width="360px"})](https://youtu.be/C1ogwC_KVRo)
 
 
 ## **Simple Baselines for Human Pose Estimation and Tracking**
- <a align = "center" href = "https://arxiv.org/pdf/1804.06208.pdf"><img src = "https://img.shields.io/badge/Paper-blueviolet.svg"></a>
+  <p align = "center"><a href = "https://arxiv.org/pdf/1804.06208.pdf"><img src = "https://img.shields.io/badge/Paper-blueviolet.svg"></a></p>
 
 
 1. Human pose estimation is the process of estimating the configuration of the body (pose) from a single, typically monocular, image. 
@@ -39,8 +38,8 @@ the overall algorithm and system complexity increases as well, making
 the algorithm analysis and comparison more difficult. This work provides
 simple and effective baseline methods
 
-**This work aims to ease complexity in algorithm and architetural problem by asking question *how good could a simple method be?***
-
+|**This work aims to ease complexity in algorithm and architetural problem by asking question *how good could a simple method be?***|
+|-----------------------------------------------------------------------------------------------------------------------------------|
 This approach involves a few deconvolutional layers added on a backbone network, ResNet.
 This approach adds a few deconvolutional layers over the last convolution stage in the ResNet, called **C5**
 
@@ -54,7 +53,8 @@ ReLU activation are used. Each layer has 256 filters with 4 × 4 kernel. The
 stride is 2. A 1 × 1 convolutional layer is added at last to generate predicted
 heatmaps {H1 . . . Hk} for all k key points.
 
-![architecture](https://github.com/SVGS-EVA4/Phase2/blob/master/S5-Monocular_Human_Pose_Estimation/images/simple_pose.png)
+<p align="center"><img src= "https://github.com/SVGS-EVA4/Phase2/blob/master/S5-Monocular_Human_Pose_Estimation/images/simple_pose.png" alt = "Human Pose Estimation"></p>
+
 
 3. Comparing the SOTA network architecture with the implemented architechture it differs in n how high resolution feature maps are generated. Both works use upsampling to increase the feature map resolution and put convolutional parameters in other blocks. In contrary, this method combines the upsampling and convolutional parameters into deconvolutional layers in a much simpler way, without using skip layer connections.
 
@@ -62,7 +62,9 @@ heatmaps {H1 . . . Hk} for all k key points.
 three levels of non-linearity (from the deepest feature) are used to obtain highresolution feature maps and heatmaps. 
 
 ## **Pose Tracking Based on Optical Flow**
-![Pose tractking](https://github.com/SVGS-EVA4/Phase2/blob/master/S5-Monocular_Human_Pose_Estimation/images/tracking.png)
+
+<p align="center"><img src= "https://github.com/SVGS-EVA4/Phase2/blob/master/S5-Monocular_Human_Pose_Estimation/images/tracking.png" alt = "Human Pose Estimation"></p>
+
 
 1. Multi-person pose tracking in videos first estimates human poses in frames, and
 then tracks these human pose by assigning a unique identification number (id)
@@ -119,13 +121,17 @@ boxes do not overlap, and in crowed scenes where boxes may not have the correspo
 3. So they proposed to use a **Object Keypoint Similarity(OKS)** which is flow based similarity Index
 <br/>
 
-![formula](https://github.com/SVGS-EVA4/Phase2/blob/master/S5-Monocular_Human_Pose_Estimation/images/formula.png)
+<p align="center"><img src= "https://github.com/SVGS-EVA4/Phase2/blob/master/S5-Monocular_Human_Pose_Estimation/images/formula.png" alt = "Human Pose Estimation"></p>
+
+
 
 ## **Flow-based Pose Tracking Algorithm**
 
-1. For the processing frame in videos, the boxes from a human detector and boxes generated by propagating joints from previous frames using optical flow are unified using a bounding box Non-Maximum Suppression (NMS) operation. The boxes generated by progagating joints serve as the complement of missing detections of the detector. Then then estimate human pose using the cropped and resized images by these boxes through our proposed pose estimation network
+1. For the processing frame in videos, the boxes from a human detector and boxes generated by propagating joints from previous frames using optical flow are unified using a bounding box Non-Maximum Suppression (NMS) operation. The boxes generated by progagating joints serve as the complement of missing detections of the detector. Then then estimate human pose using the cropped and resized images by these boxes through our proposed pose estimation network.
 
-![Algorithm](https://github.com/SVGS-EVA4/Phase2/blob/master/S5-Monocular_Human_Pose_Estimation/images/algorithm.png)
+<p align="center"><img src= "https://github.com/SVGS-EVA4/Phase2/blob/master/S5-Monocular_Human_Pose_Estimation/images/algorithm.png" alt = "Human Pose Estimation"></p>
+
+
 
 2. They store the tracked instances in a double-ended queue(Deque) with fixed length LQ, denoted as Q = [Pk−1,Pk−2, ...,Pk−LQ ]where Pk−i means tracked instances set in previous frame Ik−i and the Q’s length LQ indicates how many previous frames considered when performing matching. The Q could be used to capture previous multi frames’ linking relationship, initialized in the first frame in a video. For the kth frame Ik, they calculate the flow-based pose similarity matrix Msim between the untracked instances set of body joints Jk (id is none) and previous instances sets in Q . Then they assign id to each body joints instance J in Jk to get assigned instance set Pk by using greedy matching and Msim. Finally they update the tracked instances Q by adding up kth frame instances set Pk
 
@@ -172,12 +178,3 @@ class JointsMSELoss(nn.Module):
         return loss / num_joints
 ```
 
-
-------
-
-
-# **Human Pose Estimation** 
-
-![Human Pose Estimation](https://github.com/SVGS-EVA4/Phase2/blob/master/S5-Monocular_Human_Pose_Estimation/images/human_pose.png)
-
-Try it out <a href='https://svgs-eva.s3.ap-south-1.amazonaws.com/human_pose.html'>here.</a>
