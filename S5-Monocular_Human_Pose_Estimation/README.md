@@ -5,7 +5,7 @@
 *.Download the smallest [model](https://onedrive.live.com/?authkey=%21AFkTgCsr3CT9%2D%5FA&id=56B9F9C97F261712%2110709&cid=56B9F9C97F261712) and upload to Lambda for HPE detection
 <br/>
 
-<p align = "center">or</p>
+<p align="center">or</p>
 
 
  *. 1 application of human pose gesture control
@@ -14,13 +14,13 @@
  
  ## **Human Pose Estimation** 
  
- <a align = "center" href = "https://svgs-eva.s3.ap-south-1.amazonaws.com/human_pose.html"><img src = "https://img.shields.io/badge/Website-success.svg"></a>
+ <a align="center" href="https://svgs-eva.s3.ap-south-1.amazonaws.com/human_pose.html"><img src = "https://img.shields.io/badge/Website-success.svg"></a>
  
- <p align = "center">< img src= "https://github.com/SVGS-EVA4/Phase2/blob/master/S5-Monocular_Human_Pose_Estimation/images/human_pose.png" alt = "Human Pose Estimation"></p>
+ <p align="center"><img src= "https://github.com/SVGS-EVA4/Phase2/blob/master/S5-Monocular_Human_Pose_Estimation/images/human_pose.png" alt = "Human Pose Estimation"></p>
  
 ## **Gesture Control Application Demo**
 
-<a align= "center" href = "https://youtu.be/C1ogwC_KVRo"><img src = "https://img.youtube.com/vi/C1ogwC_KVRo/maxresdefault.jpg" width = "600"></a>
+<a align="center" href="https://youtu.be/C1ogwC_KVRo"><img src = "https://img.youtube.com/vi/C1ogwC_KVRo/maxresdefault.jpg" width = "600"></a>
 
 [![Watch the video](https://img.youtube.com/vi/C1ogwC_KVRo/maxresdefault.jpg {height="360px" width="360px"})](https://youtu.be/C1ogwC_KVRo)
 
