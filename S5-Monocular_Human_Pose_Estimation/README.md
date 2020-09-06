@@ -10,9 +10,7 @@
  
  ---
  
- ## :large_orange_diamond: **Human Pose Estimation** 
- 
- <p align = "center"><a href="https://svgs-eva.s3.ap-south-1.amazonaws.com/human_pose.html"><img src = "https://img.shields.io/badge/Website-success.svg"></a></p>
+ ## :large_orange_diamond: **Human Pose Estimation**  <p align = "center"><a href="https://svgs-eva.s3.ap-south-1.amazonaws.com/human_pose.html"><img src = "https://img.shields.io/badge/Website-success.svg"></a></p>
  
  <p align="center"><img src= "https://github.com/SVGS-EVA4/Phase2/blob/master/S5-Monocular_Human_Pose_Estimation/images/human_pose.png" alt = "Human Pose Estimation"></p>
  
