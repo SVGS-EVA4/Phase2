@@ -151,3 +151,9 @@ class JointsMSELoss(nn.Module):
 # **Gesture Control Application Demo**
 
 [![Watch the video](https://img.youtube.com/vi/C1ogwC_KVRo/maxresdefault.jpg)](https://youtu.be/C1ogwC_KVRo)
+
+# **Human Pose Estimation** 
+
+![Human Pose Estimation](https://github.com/SVGS-EVA4/Phase2/blob/master/S5-Monocular_Human_Pose_Estimation/images/human_pose.png)
+
+Try it out <a href='https://svgs-eva.s3.ap-south-1.amazonaws.com/human_pose.html'>here.</a>
