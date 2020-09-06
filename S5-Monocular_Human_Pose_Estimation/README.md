@@ -3,10 +3,8 @@
 # **Assignment**
 * Read the [paper](https://arxiv.org/pdf/1804.06208.pdf) and write a detailed readme file describing the model architecture as well as the JointsMSELoss class
 * Download the smallest [model](https://onedrive.live.com/?authkey=%21AFkTgCsr3CT9%2D%5FA&id=56B9F9C97F261712%2110709&cid=56B9F9C97F261712) and upload to Lambda for HPE detection
-<br/>
 
 <p align="center">or</p>
-
 
  * 1 application of human pose gesture control
  
@@ -22,7 +20,7 @@
 
 <p align = "center"><a href="https://youtu.be/C1ogwC_KVRo"><img src = "https://img.youtube.com/vi/C1ogwC_KVRo/maxresdefault.jpg" width = "600"></a></p>
 
-
+ ---
 
 ## **Simple Baselines for Human Pose Estimation and Tracking**
   <p align = "center"><a href = "https://arxiv.org/pdf/1804.06208.pdf"><img src = "https://img.shields.io/badge/Paper-blueviolet.svg"></a></p>
@@ -42,8 +40,8 @@ simple and effective baseline methods
 |-----------------------------------------------------------------------------------------------------------------------------------|
 
 
-This approach involves a few deconvolutional layers added on a backbone network, ResNet.
-This approach adds a few deconvolutional layers over the last convolution stage in the ResNet, called **C5**
+This approach involves a few deconvolutional layers added on a backbone network, ResNet.And adds a few deconvolutional layers over the last convolution stage in the ResNet, called **C5**
+
 
 ## **Pose Estimation Using A Deconvolution Head Network**
 
