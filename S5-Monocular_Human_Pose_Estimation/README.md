@@ -40,6 +40,8 @@ simple and effective baseline methods
 
 |**This work aims to ease complexity in algorithm and architetural problem by asking question *how good could a simple method be?***|
 |-----------------------------------------------------------------------------------------------------------------------------------|
+
+
 This approach involves a few deconvolutional layers added on a backbone network, ResNet.
 This approach adds a few deconvolutional layers over the last convolution stage in the ResNet, called **C5**
 
