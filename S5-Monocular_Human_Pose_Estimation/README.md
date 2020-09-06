@@ -150,7 +150,7 @@ class JointsMSELoss(nn.Module):
 ------
 # **Gesture Control Application Demo**
 
-[![Watch the video](https://img.youtube.com/vi/C1ogwC_KVRo/maxresdefault.jpg {:height="36px" width="36px"})](https://youtu.be/C1ogwC_KVRo)
+[![Watch the video](https://img.youtube.com/vi/C1ogwC_KVRo/maxresdefault.jpg {height="360px" width="360px"})](https://youtu.be/C1ogwC_KVRo)
 
 # **Human Pose Estimation** 
 
