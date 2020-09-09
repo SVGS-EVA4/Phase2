@@ -26,19 +26,13 @@ def align_face(img_bytes,face_predictor_path):
         print('img decoded')
         size = im.shape
         faceDetector = dlib.get_frontal_face_detector()
-        landmarkDetector = dlib.shape_predictor(face_predictor_path)
+        
         print('initialized detectors')
         if len(faceDetector(im,0)) == 0:
-            return {
-            'statusCode': 200,
-            'headers':{
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Credentials': True
-            },
-            'body': json.dumps({ 'Status':'0','Result':'No faces detected','ImageBytes': ''  })
-            }
+            return { 'Status':'0','ImageBytes': ''  }
+            
         else:
+            landmarkDetector = dlib.shape_predictor(face_predictor_path)
             points = getLandmarks(faceDetector,landmarkDetector,im)
             print('landmarks= ',points)
             print(len(points))
@@ -55,7 +49,7 @@ def align_face(img_bytes,face_predictor_path):
             imNorm = np.uint8(imNorm*255)
             
             img = Image.fromarray(imNorm[:,:,::-1])
-            return img
+            return { 'Status':'1','ImageBytes': img  }
 
     except Exception as e:
         print(repr(e))
@@ -102,41 +96,54 @@ def recognise_face(event, context):
 
         picture = decoder.MultipartDecoder(body,content_type_header).parts[0]
 
-        
-        aligned_face = align_face(img_bytes = picture.content,face_predictor_path=face_predictor_path)
-
-        nparray = transform_image(img = aligned_face)	
-        print('aug applied')	
-        nparray1 = np.transpose(nparray,(2,0,1))
-        nparray1 = nparray1[np.newaxis,... ]
-        print('nparray1.shape',nparray1.shape)
-        
-
-
-        prediction = get_prediction(image_array= nparray1, model_path = model_path)
-
-        print('model predictions completed')
-        classes = {0:'APJ Abdul Kalam', 15:'Barack Obama',26:'Chandler Bing',39:'Elon Musk',89:'Joey Tribianni',127:'Michelle Obama',160:'Ross Gellar',149:'Rachel Green',146:'Pheobe Buffay',131:'Monica Gellar'}
-         
-        if int(prediction) in classes:
-            predicted_class = classes[int(prediction)]
-        else:
-            predicted_class = 'Unknown'
-        print(prediction,predicted_class)
-
         filename = picture.headers[b'Content-Disposition'].decode().split(';')[1].split('=')[1]
         if len(filename) < 4:
             filename = picture.headers[b'Content-Disposition'].decode().split(';')[2].split('=')[1]
-        
-        return {
+
+
+        aligned_face_dict = align_face(img_bytes = picture.content,face_predictor_path=face_predictor_path)
+        if aligned_face_dict['Status'] == '0':
+            return {
             'statusCode': 200,
             'headers':{
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Credentials': True
             },
-            'body': json.dumps({'Status':'1','File': filename.replace('"',''), 'Predicted_Class': str(predicted_class) ,'Class_No.':str(prediction) })
+            'body': json.dumps({'Status':'0','File': filename.replace('"',''), 'Message':'No faces detected'  })
         }
+        else:
+            aligned_face = aligned_face_dict['ImageBytes']
+            nparray = transform_image(img = aligned_face)	
+            print('aug applied')	
+            nparray1 = np.transpose(nparray,(2,0,1))
+            nparray1 = nparray1[np.newaxis,... ]
+            print('nparray1.shape',nparray1.shape)
+            
+
+
+            prediction = get_prediction(image_array= nparray1, model_path = model_path)
+
+            print('model predictions completed')
+            classes = {0:'APJ Abdul Kalam', 15:'Barack Obama',26:'Chandler Bing',39:'Elon Musk',89:'Joey Tribianni',127:'Michelle Obama',160:'Ross Gellar',149:'Rachel Green',146:'Pheobe Buffay',131:'Monica Gellar'}
+            
+            if int(prediction) in classes:
+                predicted_class = classes[int(prediction)]
+            else:
+                predicted_class = 'Unknown'
+            print(prediction,predicted_class)
+
+            
+            
+            return {
+                'statusCode': 200,
+                'headers':{
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Credentials': True
+                },
+                'body': json.dumps({'Status':'1','File': filename.replace('"',''), 'Message':'Successfully recognised face' ,'Predicted_Class':str (predicted_class) ,'Class_No.':str(prediction) })
+            }
     except Exception as e:
         print(repr(e))
         return {
@@ -148,4 +155,3 @@ def recognise_face(event, context):
             },
             'body': json.dumps({ 'error': repr(e) ,'Status':'0' })
         }
-
