@@ -1,5 +1,6 @@
 # Face Recognition Part 2
 [![Website](https://img.shields.io/badge/Website-blue.svg)](https://svgs-eva.s3.ap-south-1.amazonaws.com/face_recognition.html)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/SVGS-EVA4/Phase2/blob/master/S4-FaceRecognitionPart2/Session4_quantised.ipynb)]
 
 # Assignment
 1. Refer to this beautiful [blog](https://towardsdatascience.com/finetune-a-facial-recognition-classifier-to-recognize-your-face-using-pytorch-d00a639d9a79) 
