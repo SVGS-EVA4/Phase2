@@ -23,7 +23,7 @@ VAE was trained on custom car dataset.
 [Model Training Code](https://github.com/SVGS-EVA4/Phase2/blob/master/S7-Variational_AutoEncoders/Extras/Shilpa/VAE.ipynb)
 
 
-### Generator versus Discriminator Loss
+### VAE Loss
 
 ![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/loss_graph.PNG)
 
