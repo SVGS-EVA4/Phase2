@@ -20,9 +20,7 @@ VAE was trained on custom car dataset.
 ## Model Training
 ---
 
-![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S6-Generative_Adversarial_Networks/asset/train_gif.gif)
-
-[Model Training Code](https://github.com/SVGS-EVA4/Phase2/blob/master/S6-Generative_Adversarial_Networks/CarDCGAN.ipynb)
+[Model Training Code](https://github.com/SVGS-EVA4/Phase2/blob/master/S7-Variational_AutoEncoders/Extras/Shilpa/VAE.ipynb)
 
 
 ### Generator versus Discriminator Loss
