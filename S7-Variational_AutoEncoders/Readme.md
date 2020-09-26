@@ -1,11 +1,11 @@
-# Generative Adversarial Network on Car Dataset
+# Variational AutoEncoder on Car Dataset
 ----
 
-DC-GAN was trained on custom car dataset.
+VAE was trained on custom car dataset.
 
 ## Dataset
 
-![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S6-Generative_Adversarial_Networks/asset/dataset.PNG)
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/ds.PNG)
 
 [Link to dataset](https://drive.google.com/file/d/1G5sKYPPYAteKzWn6fWsACtIF9W635Frx/view?usp=sharing)
 
@@ -14,13 +14,7 @@ DC-GAN was trained on custom car dataset.
 ## Model Architecture
 ---
 
-### Generator Architecture
-
-![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S6-Generative_Adversarial_Networks/asset/gen_arch.PNG)
-
-### Discriminator Architecture
-
-![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S6-Generative_Adversarial_Networks/asset/discrim_arch.PNG)
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/vae.PNG)
 
 
 ## Model Training
@@ -33,9 +27,9 @@ DC-GAN was trained on custom car dataset.
 
 ### Generator versus Discriminator Loss
 
-![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S6-Generative_Adversarial_Networks/asset/gan_loss_graph.PNG)
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/loss_graph.PNG)
 
 ## Evaluation
 ---
 
-![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S6-Generative_Adversarial_Networks/asset/real_vs_fake.PNG)
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/eval.PNG)
