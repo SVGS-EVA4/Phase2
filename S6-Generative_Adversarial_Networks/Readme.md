@@ -1,5 +1,5 @@
 # Generative Adversarial Network on Car Dataset
-[![](http://img.shields.io/badge/website%20link-blue)](https://svgs-eva.s3.ap-south-1.amazonaws.com/gan.html)) [![](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/SVGS-EVA4/Phase2/blob/master/S6-Generative_Adversarial_Networks/CarDCGAN.ipynb)
+[![](http://img.shields.io/badge/website%20link-green)](https://svgs-eva.s3.ap-south-1.amazonaws.com/gan.html) [![](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/SVGS-EVA4/Phase2/blob/master/S6-Generative_Adversarial_Networks/CarDCGAN.ipynb)
 
 DC-GAN was trained on custom car dataset.
 
