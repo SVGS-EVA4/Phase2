@@ -1,4 +1,4 @@
-function uploadAndAlignFace(){
+function uploadForVAE(){
     
     
 
@@ -6,7 +6,7 @@ function uploadAndAlignFace(){
         async: true,
         crossDomain: true,
         method: 'GET',
-        url:' https://zedptp9pc4.execute-api.ap-south-1.amazonaws.com/dev/gan',
+        url:'https://xxxxxx.execute-api.ap-south-1.amazonaws.com/dev/gan',
         
         processData: false,
         
@@ -20,15 +20,11 @@ function uploadAndAlignFace(){
     .done(function(response){
         console.log('hello')
         console.log((JSON.parse(response)).data.ImageBytes);
-        if (((JSON.parse(response)).Status) =='IncorrectInput'){
+        if (((JSON.parse(response)).Status) =='0'){
             document.getElementById('result').src = '/';
             document.getElementById('error').textContent = 'Error, Retry';
         }
         else{
-            // var spantag = document.getElementById('spantag');
-            // var imgtag = document.createElement("IMG");
-            // spantag.appendChild(imgtag)
-            // <img id='result' src='/' alt='result' width="200" />
             document.getElementById('error').textContent = '';
             document.getElementById('result').src = 'data:image/jpeg;base64,'+(JSON.parse(response)).data;
             document.getElementById('result').style.display = 'inherit'
@@ -39,4 +35,4 @@ function uploadAndAlignFace(){
     });
 };
 
-$('#btnUpload').click(uploadAndAlignFace);
+$('#btnUpload').click(uploadForVAE);

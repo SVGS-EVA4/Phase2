@@ -1,3 +1,6 @@
+
+
+
 function uploadAndClassifyImageMobilenet(){
     var fileInput = document.getElementById('fileUpload').files;
     if(!fileInput.length){
@@ -13,7 +16,7 @@ function uploadAndClassifyImageMobilenet(){
         async: true,
         crossDomain: true,
         method: 'POST',
-        url:'https://xxxxxxxxx.execute-api.ap-south-1.amazonaws.com/dev/classify',
+        url:'https://xxxxxxx.execute-api.ap-south-1.amazonaws.com/dev/classify',
         data: formData,
         processData: false,
         
@@ -54,7 +57,7 @@ function uploadAndClassifyImageFourClass(){
         async: true,
         crossDomain: true,
         method: 'POST',
-        url:'https://xxxxxxx.execute-api.ap-south-1.amazonaws.com/dev/classification',
+        url:'https://865fgqaq94.execute-api.ap-south-1.amazonaws.com/dev/classification',
         
         data: formData,
         processData: false,

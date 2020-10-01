@@ -1,7 +1,7 @@
-function uploadAndAlignFace(){
+function uploadAndGetPose(){
     var fileInput = document.getElementById('fileUpload').files;
     if(!fileInput.length){
-        return alert('Please chose file')
+        return alert('Please choose file')
     }
     var file = fileInput[0];
     var filename = file.name;
@@ -13,7 +13,7 @@ function uploadAndAlignFace(){
         async: true,
         crossDomain: true,
         method: 'POST',
-        url:'https://xxxxxxxx.execute-api.ap-south-1.amazonaws.com/dev/face_alignment',
+        url:'https://xxxxxxx.execute-api.ap-south-1.amazonaws.com/dev/human_pose_estimation',
         data: formData,
         processData: false,
         
@@ -25,17 +25,12 @@ function uploadAndAlignFace(){
 
     })
     .done(function(response){
-        console.log('hello')
-        console.log(response);
+        console.log('hello');
         if (((JSON.parse(response)).Status) =='IncorrectInput'){
             document.getElementById('result').src = '/';
-            document.getElementById('error').textContent = 'No faces detected';
+            document.getElementById('error').textContent = 'No person detected';
         }
         else{
-            // var spantag = document.getElementById('spantag');
-            // var imgtag = document.createElement("IMG");
-            // spantag.appendChild(imgtag)
-            // <img id='result' src='/' alt='result' width="200" />
             document.getElementById('error').textContent = '';
             document.getElementById('result').src = 'data:image/jpeg;base64,'+(JSON.parse(response)).ImageBytes;
             document.getElementById('result').style.display = 'inherit'
@@ -46,4 +41,4 @@ function uploadAndAlignFace(){
     });
 };
 
-$('#btnUpload').click(uploadAndAlignFace);
+$('#btnUpload').click(uploadAndGetPose);

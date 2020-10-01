@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classification</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Human Pose Estimation</title>
 </head>
 <style>
     body{
@@ -13,7 +13,7 @@
     .heading{
         text-align: center;
        
-        color: #103a47;
+        color:#103a47;
         margin : 2rem 3rem;
         
     }
@@ -49,70 +49,57 @@
         
         margin: 0rem 2rem;
         font-weight:500;
-        color: white
+        color:white;
 
     }
     .nav-element:hover{
-     
+        text-decoration:none;
         color:white
     }
     #error{
         color: red;
         font-weight:bolder;
     }
-    #result2b, #result1b{
-        font-size: x-large;
-        font-weight: bold;
-    }
-    #result1a, #result2a{
-        color:crimson;
-        font-weight: bold;
-        font-size: x-large;
-    }
 </style>
 <body>
-     <!-- <a href='./face_align.html'>Face Alignment</a> -->
-    <!-- <br/>
-    <br/> --> 
+    <!-- <a href='./classify.html'>Classification</a>
+    <br/>
+    <br/> -->
     <div class = "nav">
         <div></div>
          <a class = 'nav-element' href='./classify.html'>Classification</a> 
          <a class = 'nav-element' href='./face_align.html'>Face Alignment</a> 
          <a class = 'nav-element' href='./swapFace.html'>Face Swap</a> 
-         <a class = 'nav-element' href='./human_pose.html'>Human Pose Estimation</a>
+         <a class = 'nav-element' href='./human_pose.html'>Human Pose Estimation</a> 
          <a class = 'nav-element' href='./face_recognition.html'>Face Recognition</a>
-         <a class = 'nav-element' href='./gan.html'>GAN</a> 
+
     </div>
     <br/>
-    <h1 class = "heading">Classify </h1>
-    <p class = "desc"><strong>Classify the image based on pretraned resnet model which has 1000 classes.<br/>
-   Other one is ModelNet_V2, trained using transfer learning that has 4 classes small quadcopters, large quadcopters, Flying Birds, Winged Drones</strong></p>
+    <h1 class = "heading">Monocular Human Pose Estimation</h1>
+   
+   
+   <p class = "desc"><strong>Pose Estimation of a single person
     <div class = "main-division">
-    <label for='fileUpload'>Upload file</label>
+    <label for='fileUpload'>Choose file for Human Pose Estimation</label>
     <input type='file' id='fileUpload' onchange="loadFile(event)">
-    <br/>
-    <br/>
-    <input type="button" id='btnUploadMobilenet' class="button btn btn-primary" value="Classify using pretrained Resnet Model">
-    <input type="button" id='btnUploadFourClass' class="button btn btn-primary" value="Classify using custom Mobilenet V2 Nodel">
+    
+    
+    <input type="button" id='btnUpload' class="button btn btn-primary"  value="Estimate Pose">
     <br/>
     <img id="input" height="300" /> 
-    <p id='result1'></p>
+    <span id='spantag'><img id='result' src='/' alt='result' height="300" /></span>
+    <br/>
+    <p id='error'></p>
+  </div>
     
-    <span id='result1b'></span><span id='result1a'></span>
-    <p id='result2'></p>
-    
-    <span id='result2b'></span><span id='result2a'></span>
-    </div>
-
 </body>
 <script>
 var loadFile = function(event) {
- 
     var image = document.getElementById('input');
     image.src = URL.createObjectURL(event.target.files[0]);
     image.style.display = 'initial'
-}
+};
 </script>
 <script src="./js/jquery-3.3.1.min.js"></script>
-<script src="./js/upload_for_classifier.js"></script>
+<script src="./js/upload_human_pose.js"></script>
 </html>

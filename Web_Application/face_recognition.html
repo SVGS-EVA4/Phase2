@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classification</title>
+    <title>Face Recognition</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <style>
@@ -69,6 +69,8 @@
         font-weight: bold;
         font-size: x-large;
     }
+
+
 </style>
 <body>
      <!-- <a href='./face_align.html'>Face Alignment</a> -->
@@ -81,19 +83,33 @@
          <a class = 'nav-element' href='./swapFace.html'>Face Swap</a> 
          <a class = 'nav-element' href='./human_pose.html'>Human Pose Estimation</a>
          <a class = 'nav-element' href='./face_recognition.html'>Face Recognition</a>
-         <a class = 'nav-element' href='./gan.html'>GAN</a> 
     </div>
     <br/>
-    <h1 class = "heading">Classify </h1>
-    <p class = "desc"><strong>Classify the image based on pretraned resnet model which has 1000 classes.<br/>
-   Other one is ModelNet_V2, trained using transfer learning that has 4 classes small quadcopters, large quadcopters, Flying Birds, Winged Drones</strong></p>
+    <h1 class = "heading">Face Recognition </h1>
+    <p class = "desc"><strong>Our Face Recognition model can recognise:</strong></p>
+   <div>
+    <span>
+        <img src='./images/apj.jpg' title='APJ Abdul Kalam' width='100' height='100'>
+        <img src='./images/barack_obama.jpg' title="Barack Obama" width='100' height='100'>
+        <img src='./images/michelle_obama.jpg' title="Michelle Obama" width='100' height='100'>
+        <img src='./images/monica_gellar.jpg' title="Monica Gellar " width='100' height='100'>
+        <img src='./images/ross_gellar.jpg' title="Ross Gellar " width='100' height='100'>
+        <img src='./images/phoebe_buffay.jpg' title="Phoebe Buffay " width='100' height='100'>
+        <img src='./images/rachel_green.jpg' title="Rachel Green " width='100' height='100'>
+        <img src='./images/chandler_bing.jpg' title="Chandler Bing " width='100' height='100'>
+        <img src='./images/joey_tribianni.jpg' title="Joey Tribianni " width='100' height='100'>
+        <img src='./images/elon_musk.jpg' title="Elon Musk " width='100' height='100'>
+   
+
+    </span>
+</div>
     <div class = "main-division">
     <label for='fileUpload'>Upload file</label>
     <input type='file' id='fileUpload' onchange="loadFile(event)">
     <br/>
     <br/>
-    <input type="button" id='btnUploadMobilenet' class="button btn btn-primary" value="Classify using pretrained Resnet Model">
-    <input type="button" id='btnUploadFourClass' class="button btn btn-primary" value="Classify using custom Mobilenet V2 Nodel">
+    <input type="button" id='recogniseFace' class="button btn btn-primary" value="Face Recognition">
+   
     <br/>
     <img id="input" height="300" /> 
     <p id='result1'></p>
@@ -114,5 +130,5 @@ var loadFile = function(event) {
 }
 </script>
 <script src="./js/jquery-3.3.1.min.js"></script>
-<script src="./js/upload_for_classifier.js"></script>
+<script src="./js/upload_for_face_recognition.js"></script>
 </html>
