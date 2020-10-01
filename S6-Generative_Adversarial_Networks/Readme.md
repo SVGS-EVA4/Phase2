@@ -12,7 +12,7 @@ DC-GAN was trained on custom car dataset.
 [Dataset Preprocessing Code](https://github.com/SVGS-EVA4/Phase2/blob/master/S6-Generative_Adversarial_Networks/Preprocessing.ipynb)
 
 ## Model Architecture
----
+
 
 ### Generator Architecture
 
@@ -24,7 +24,7 @@ DC-GAN was trained on custom car dataset.
 
 
 ## Model Training
----
+
 
 ![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S6-Generative_Adversarial_Networks/asset/train_gif.gif)
 
@@ -36,7 +36,6 @@ DC-GAN was trained on custom car dataset.
 ![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S6-Generative_Adversarial_Networks/asset/gan_loss_graph.PNG)
 
 ## Evaluation
----
 
 ![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S6-Generative_Adversarial_Networks/asset/real_vs_fake.PNG)
 
