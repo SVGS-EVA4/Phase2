@@ -1,5 +1,5 @@
 # Generative Adversarial Network on Car Dataset
-----
+[![](http://img.shields.io/badge/website%20link-blue)](https://svgs-eva.s3.ap-south-1.amazonaws.com/gan.html)) [![](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/SVGS-EVA4/Phase2/blob/master/S6-Generative_Adversarial_Networks/CarDCGAN.ipynb)
 
 DC-GAN was trained on custom car dataset.
 
@@ -28,7 +28,7 @@ DC-GAN was trained on custom car dataset.
 
 ![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S6-Generative_Adversarial_Networks/asset/train_gif.gif)
 
-[Model Training Code](https://github.com/SVGS-EVA4/Phase2/blob/master/S6-Generative_Adversarial_Networks/CarDCGAN.ipynb)
+
 
 
 ### Generator versus Discriminator Loss
@@ -40,7 +40,4 @@ DC-GAN was trained on custom car dataset.
 
 ![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S6-Generative_Adversarial_Networks/asset/real_vs_fake.PNG)
 
-## Link to site
----
 
-[Generate Car](https://svgs-eva.s3.ap-south-1.amazonaws.com/gan.html)
