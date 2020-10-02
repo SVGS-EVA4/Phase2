@@ -7,7 +7,7 @@ Variational Autoencoders (VAEs) have one fundamentally unique property that sepa
 
 It achieves this by doing something that seems rather surprising at first: making its encoder not output an encoding vector of size n, rather, outputting two vectors of size n: a vector of means, μ, and another vector of standard deviations, σ
 
-![VAE-Architecture]()
+![VAE-Architecture](https://github.com/SVGS-EVA4/Phase2/blob/master/S7-Variational_AutoEncoders/asset/VAE_Architecture.png)
 
 ## **Assignment**
 
@@ -22,13 +22,13 @@ It achieves this by doing something that seems rather surprising at first: makin
 [![](https://img.shields.io/badge/Data%20Preprocessing-blue.svg)](https://github.com/SVGS-EVA4/Phase2/blob/master/S6-Generative_Adversarial_Networks/Preprocessing.ipynb)
 
 
-![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/ds.PNG)
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/ds.png)
 
 
 ## **Model Architecture**
 
 
-![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/vae.PNG)
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/vae.png)
 
 
 ## **Paramenters and Hyperparameters**
@@ -42,9 +42,9 @@ It achieves this by doing something that seems rather surprising at first: makin
 
 ## **VAE Loss Plot**
 
-![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/loss_graph.PNG)
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/loss_graph.png)
 
 ## **Resutls**
 
 
-![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/eval.PNG)
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/eval.png)
