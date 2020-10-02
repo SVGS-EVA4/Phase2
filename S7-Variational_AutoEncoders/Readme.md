@@ -34,8 +34,7 @@ KLD Loss is a method to compare two probability distributions. For the discrete 
 
 ## **Model Architecture**
 
-
-![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/vae.png)
+<img src = "https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/vae.png" height='800'/>
 
 
 ## **Paramenters and Hyperparameters**
