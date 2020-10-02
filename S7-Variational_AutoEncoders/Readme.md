@@ -7,7 +7,8 @@ Variational Autoencoders (VAEs) have one fundamentally unique property that sepa
 
 It achieves this by doing something that seems rather surprising at first: making its encoder not output an encoding vector of size n, rather, outputting two vectors of size n: a vector of means, μ, and another vector of standard deviations, σ
 
-![VAE-Architecture](https://github.com/SVGS-EVA4/Phase2/blob/master/S7-Variational_AutoEncoders/asset/VAE_Architecture.png)
+
+<p align="center"><img src = "https://github.com/SVGS-EVA4/Phase2/blob/master/S7-Variational_AutoEncoders/asset/VAE_Architecture.png" width = '500'/></p>
 
 ## **Assignment**
 
@@ -22,7 +23,8 @@ It achieves this by doing something that seems rather surprising at first: makin
 [![](https://img.shields.io/badge/Data%20Preprocessing-blue.svg)](https://github.com/SVGS-EVA4/Phase2/blob/master/S6-Generative_Adversarial_Networks/Preprocessing.ipynb)
 
 
-![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/ds.png)
+
+<p align="center"><img src = "https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/ds.png" /></p>
 
 
 ## **Model Architecture**
@@ -44,7 +46,10 @@ It achieves this by doing something that seems rather surprising at first: makin
 
 ![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/loss_graph.png)
 
-## **Resutls**
+## **Results**
 
 
 ![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/eval.png)
+
+## **Interpolation in Latent Space**
+![](https://github.com/SVGS-EVA4/Phase2/blob/master/S7-Variational_AutoEncoders/asset/interpolate.png)
