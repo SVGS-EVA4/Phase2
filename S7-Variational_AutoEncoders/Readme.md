@@ -53,3 +53,8 @@ It achieves this by doing something that seems rather surprising at first: makin
 
 ## **Interpolation in Latent Space**
 ![](https://github.com/SVGS-EVA4/Phase2/blob/master/S7-Variational_AutoEncoders/asset/interpolate.png)
+
+## **References**
+1. [Variational Encoders Blog by JEREMY JORDAN](https://www.jeremyjordan.me/variational-autoencoders/)
+2. [Variational Autoencoder in PyTorch, commented and annotated by cpbotha](https://vxlabs.com/2017/12/08/variational-autoencoder-in-pytorch-commented-and-annotated/)
+3, [VAriational Avutoenders explaination video by Arxiv Insights](https://youtu.be/9zKuYvjFFS8)
