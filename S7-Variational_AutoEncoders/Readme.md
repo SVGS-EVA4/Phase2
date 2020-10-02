@@ -19,7 +19,7 @@ It achieves this by doing something that seems rather surprising at first: makin
 
 
 [![](https://img.shields.io/badge/DataSet-blue.svg)](https://drive.google.com/file/d/1G5sKYPPYAteKzWn6fWsACtIF9W635Frx/view?usp=sharing)
-[![](https://img.shields.io/badge/DataSet%20Preprocessing-blue.svg](https://github.com/SVGS-EVA4/Phase2/blob/master/S6-Generative_Adversarial_Networks/Preprocessing.ipynb)
+[![](https://img.shields.io/badge/DataSet%20Preprocessing-blue.svg)](https://github.com/SVGS-EVA4/Phase2/blob/master/S6-Generative_Adversarial_Networks/Preprocessing.ipynb)
 
 
 ![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/ds.PNG)
