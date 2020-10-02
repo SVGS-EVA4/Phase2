@@ -13,7 +13,7 @@ It achieves this by doing something that seems rather surprising at first: makin
 ## **Kullback-Leibler Divergence Loss**
 KLD Loss is a method to compare two probability distributions. For the discrete probability distribution p & q, the KL Divergence between them is defined as
 
-<p align="center"><img src = "https://github.com/SVGS-EVA4/Phase2/blob/master/S7-Variational_AutoEncoders/asset/KL-loss.png" width = '500'/></p>
+<p align="center"><img src = "https://github.com/SVGS-EVA4/Phase2/blob/master/S7-Variational_AutoEncoders/asset/KL-loss.png" /></p>
 
 ## **Assignment**
 
