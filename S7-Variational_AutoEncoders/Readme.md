@@ -53,7 +53,6 @@ KLD Loss is a method to compare two probability distributions. For the discrete 
 
 ## **Results**
 
-
 ![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S7-Variational_AutoEncoders/asset/eval.png)
 
 ## **Interpolation in Latent Space**
@@ -62,4 +61,4 @@ KLD Loss is a method to compare two probability distributions. For the discrete 
 ## **References**
 1. [Variational Encoders Blog by JEREMY JORDAN](https://www.jeremyjordan.me/variational-autoencoders/)
 2. [Variational Autoencoder in PyTorch, commented and annotated by cpbotha](https://vxlabs.com/2017/12/08/variational-autoencoder-in-pytorch-commented-and-annotated/)
-3. [VAriational Avutoenders explaination video by Arxiv Insights](https://youtu.be/9zKuYvjFFS8)
+3. [Variational Autoencoders explaination video by Arxiv Insights](https://youtu.be/9zKuYvjFFS8)
