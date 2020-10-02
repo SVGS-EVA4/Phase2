@@ -10,6 +10,11 @@ It achieves this by doing something that seems rather surprising at first: makin
 
 <p align="center"><img src = "https://github.com/SVGS-EVA4/Phase2/blob/master/S7-Variational_AutoEncoders/asset/VAE_Architecture.png" width = '500'/></p>
 
+## **Kullback-Leibler Divergence Loss**
+KLD Loss is a method to compare two probability distributions. For the discrete probability distribution p & q, the KL Divergence between them is defined as
+
+<p align="center"><img src = "https://github.com/SVGS-EVA4/Phase2/blob/master/S7-Variational_AutoEncoders/asset/KL-loss.png" width = '500'/></p>
+
 ## **Assignment**
 
      To train Variational Auto Encoder to reconstruct an input image of a car.
@@ -57,4 +62,4 @@ It achieves this by doing something that seems rather surprising at first: makin
 ## **References**
 1. [Variational Encoders Blog by JEREMY JORDAN](https://www.jeremyjordan.me/variational-autoencoders/)
 2. [Variational Autoencoder in PyTorch, commented and annotated by cpbotha](https://vxlabs.com/2017/12/08/variational-autoencoder-in-pytorch-commented-and-annotated/)
-3, [VAriational Avutoenders explaination video by Arxiv Insights](https://youtu.be/9zKuYvjFFS8)
+3. [VAriational Avutoenders explaination video by Arxiv Insights](https://youtu.be/9zKuYvjFFS8)
