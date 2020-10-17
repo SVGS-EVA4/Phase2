@@ -51,3 +51,13 @@ As our model has 100 filters of 3 different sizes, that means we have 300 differ
 [Link to code](https://github.com/SVGS-EVA4/Phase2/blob/master/S9-Neural%20Embedding/ConvolutionalSentimentAnalysis.ipynb)
 
 [Link to trained model](https://drive.google.com/file/d/1FlJyvphI4de1zBqwfEFJzCSFpArmWCDc/view?usp=sharing)
+
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S9-Neural%20Embedding/asset/TrainingHistory.PNG)
+
+# Model Evaluation
+---
+
+Below is the result for evaluating on test data:
+
+Test Loss: 0.336 | Test Acc: 85.70%
+
