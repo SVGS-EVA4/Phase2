@@ -40,8 +40,14 @@ The idea here is that the maximum value is the "most important" feature for dete
 
 As our model has 100 filters of 3 different sizes, that means we have 300 different n-grams the model thinks are important. We concatenate these together into a single vector and pass them through a linear layer to predict the sentiment. We can think of the weights of this linear layer as "weighting up the evidence" from each of the 300 n-grams and making a final decision.
 
+# Model Summary
+---
+
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S9-Neural%20Embedding/asset/summary.PNG)
 
 # Model Training
 ---
+
+[Link to code](https://github.com/SVGS-EVA4/Phase2/blob/master/S9-Neural%20Embedding/ConvolutionalSentimentAnalysis.ipynb)
 
 [Link to trained model](https://drive.google.com/file/d/1FlJyvphI4de1zBqwfEFJzCSFpArmWCDc/view?usp=sharing)
