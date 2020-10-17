@@ -59,5 +59,5 @@ As our model has 100 filters of 3 different sizes, that means we have 300 differ
 
 Below is the result for evaluating on test data:
 
-Test Loss: 0.336 | Test Acc: 85.70%
+Test Loss: 0.351 | Test Acc: 85.66%
 
