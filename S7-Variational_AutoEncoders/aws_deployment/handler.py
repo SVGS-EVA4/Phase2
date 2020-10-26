@@ -89,8 +89,8 @@ def reconstruct(event, context):
             'statusCode': 200,
             'headers': {
                 'Content-Type': 'application/json',
-                # 'Access-Control-Allow-Origin': '*',
-                # 'Access-Control-Allow-Credentials': True
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': True
             },
             'body': json.dumps({'Status':'1','data': output_bytes.decode('ascii')})
         }
@@ -100,8 +100,8 @@ def reconstruct(event, context):
             'statusCode': 500,
             'headers': {
                 'Content-Type': 'application/json',
-                # 'Access-Control-Allow-Origin': '*',
-                # 'Access-Control-Allow-Credentials': True
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': True
             },
-            'body': json.dumps({'Status':'1','error': repr(e)})
+            'body': json.dumps({'Status':'0','error': repr(e)})
         }
