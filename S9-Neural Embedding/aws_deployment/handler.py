@@ -64,8 +64,8 @@ def get_sentiment(event,context):
 				'statusCode': 200,
 				'headers': {
 					'Content-Type': 'application/json',
-					# 'Access-Control-Allow-Origin': '*',
-					# 'Access-Control-Allow-Credentials': True
+					'Access-Control-Allow-Origin': '*',
+					'Access-Control-Allow-Credentials': True
 				},
 				'body': json.dumps({'Status':'1','data':predict})
 			}
@@ -75,8 +75,8 @@ def get_sentiment(event,context):
             'statusCode': 500,
             'headers': {
                 'Content-Type': 'application/json',
-                # 'Access-Control-Allow-Origin': '*',
-                # 'Access-Control-Allow-Credentials': True
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Credentials': True
             },
             'body': json.dumps({'Status':'0','error': repr(e)})
         }
