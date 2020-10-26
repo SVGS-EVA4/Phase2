@@ -1,0 +1,66 @@
+
+service: srgan
+
+
+provider:
+  name: aws
+  runtime: python3.8
+  stage: dev
+  region: ap-south-1
+  timeout: 30
+  environment:
+    S3_BUCKET: tsai-model-s1
+    MODEL_PATH: srgan.pt
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - s3:getObject
+      Resource: arn:aws:s3:::tsai-model-s1/*
+
+custom:
+  pythonRequirements:
+    dockerizePip: true
+    zip: true
+    slim: true
+    strip: false
+    noDeploy:
+      - docutils
+      - jmespath
+      - pip
+      - python-dateutil
+      - setuptools
+      - six
+      - tensorboard
+    useStaticCache: true
+    useDownloadCache: true
+    cacheLocation: './cache'
+
+package:
+  individually: false
+  exclude:
+    - package.json
+    - package-lock.json
+    - node_modules/**
+    - cache/**
+    - test/**
+    - .vscode/**
+    - __pycache__/**
+    - .pytest_cache/**
+    - model/**
+    - README.md
+
+functions:
+  srgan:
+    handler: handler.srgan
+    memorySize: 3008 # MB
+    timeout: 30 # seconds
+    events:
+      - http:
+          path: srgan
+          method: post
+          cors: true
+
+plugins:
+  - serverless-python-requirements
+
+
