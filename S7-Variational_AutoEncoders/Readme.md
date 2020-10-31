@@ -1,5 +1,5 @@
 # Session7 - Variational AutoEncoder 
-[![](https://img.shields.io/badge/Website-green.svg)]() [![](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/SVGS-EVA4/Phase2/blob/master/S7-Variational_AutoEncoders/VAE_Final.ipynb) 
+[![](https://img.shields.io/badge/Website-green.svg)](http://svgs-eva4.s3-website.ap-south-1.amazonaws.com/vae.html) [![](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/SVGS-EVA4/Phase2/blob/master/S7-Variational_AutoEncoders/VAE_Final.ipynb) 
 
 Autoencoder is a neural network designed to learn an identity function in an unsupervised way to reconstruct the original input while compressing the data in the process so as to discover a more efficient and compressed representation.
 
