@@ -82,4 +82,4 @@ $$\mathbf{c}_i = \sum_j \alpha_{ij} \mathbf{h}_j$$
 
 ![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S11-GRU%2C_Attention_Mechanism_%26_Transformers/asset/attention_score_heatmap.PNG)
 
-**Attention Score Heatmap**
+>>>>>>**Attention Score Heatmap**
