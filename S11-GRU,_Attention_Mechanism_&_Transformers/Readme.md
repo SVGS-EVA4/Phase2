@@ -48,3 +48,38 @@ Because $g$ applies a softmax, it provides a vector the size of the output vocab
 
 Now, for optimization, a [cross-entropy loss](https://ml-cheatsheet.readthedocs.io/en/latest/loss_functions.html#cross-entropy) is used to maximize the probability of selecting the correct word at this time step. All parameters (including word embeddings) are then updated to maximize this probability.
 
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S11-GRU%2C_Attention_Mechanism_%26_Transformers/asset/model.PNG)
+
+
+### Attention                                                                                                                                                                               
+
+At every time step, the decoder has access to *all* source word representations $\mathbf{h}_1, \dots, \mathbf{h}_M$. 
+An attention mechanism allows the model to focus on the currently most relevant part of the source sentence.
+The state of the decoder is represented by GRU hidden state $\mathbf{s}_i$.
+So if we want to know which source word representation(s) $\mathbf{h}_j$ are most relevant, we will need to define a function that takes those two things as input.
+
+Here we use the MLP-based, additive attention that was used in Bahdanau et al.:
+
+<img src="https://github.com/bastings/annotated_encoder_decoder/blob/master/images/attention.png?raw=1" width="280">
+
+
+We apply an MLP with tanh-activation to both the current decoder state $\bf s_i$ (the *query*) and each encoder state $\bf h_j$ (the *key*), and then project this to a single value (i.e. a scalar) to get the *attention energy* $e_{ij}$. 
+
+Once all energies are computed, they are normalized by a softmax so that they sum to one: 
+
+$$ \alpha_{ij} = \text{softmax}(\mathbf{e}_i)[j] $$
+
+$$\sum_j \alpha_{ij} = 1.0$$ 
+
+The context vector for time step $i$ is then a weighted sum of the encoder hidden states (the *values*):
+$$\mathbf{c}_i = \sum_j \alpha_{ij} \mathbf{h}_j$$
+
+# Training and Evaluation
+
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S11-GRU%2C_Attention_Mechanism_%26_Transformers/asset/val_perplexity.PNG)
+
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S11-GRU%2C_Attention_Mechanism_%26_Transformers/asset/perplexity_graph.PNG)
+
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S11-GRU%2C_Attention_Mechanism_%26_Transformers/asset/attention_score_heatmap.PNG)
+
+**Attention Score Heatmap**
