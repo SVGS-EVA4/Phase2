@@ -1,6 +1,8 @@
 # 1) Image Super Resolution
 ---
 
+[![](https://img.shields.io/badge/Website-green.svg)](http://svgs-eva4.s3-website.ap-south-1.amazonaws.com/srgan.html)
+
 [Link to code](https://github.com/SVGS-EVA4/Phase2/blob/master/S8-Image_Super-Resolution_and_Neural_Style_Transfer/Image_SuperResolution/SRGAN.ipynb)
 
 ## Discriminator vs Generator Loss
