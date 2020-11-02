@@ -1,7 +1,7 @@
 # Convolutional Sentiment Analysis
 ---
 
-[![](https://img.shields.io/badge/Website-green.svg)](http://svgs-eva4.s3-website.ap-south-1.amazonaws.com/sentimental_analysis.html)
+[![](https://img.shields.io/badge/Website-green.svg)](http://svgs-eva4.s3-website.ap-south-1.amazonaws.com/sentimental_analysis.html)[![](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/SVGS-EVA4/Phase2/blob/master/S9-Neural%20Embedding/ConvolutionalSentimentAnalysis.ipynb) 
 
 Traditionally, CNNs are used to analyse images and are made up of one or more convolutional layers, followed by one or more linear layers. The convolutional layers use filters (also called kernels or receptive fields) which scan across an image and produce a processed version of the image. This processed version of the image can be fed into another convolutional layer or a linear layer. Each filter has a shape, e.g. a 3x3 filter covers a 3 pixel wide and 3 pixel high area of the image, and each element of the filter has a weight associated with it, the 3x3 filter would have 9 weights. In traditional image processing these weights were specified by hand by engineers, however the main advantage of the convolutional layers in neural networks is that these weights are learned via backpropagation.
 
