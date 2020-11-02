@@ -21,14 +21,16 @@
 
 
 # 2) Neural Style Transfer
-<br/>
+
 
  [![](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/SVGS-EVA4/Phase2/blob/master/S8-Image_Super-Resolution_and_Neural_Style_Transfer/Neural_Style_Transfer/neural_style_transfer.ipynb)
+<br/>
 
+## Input 
 
 <img src = "https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S8-Image_Super-Resolution_and_Neural_Style_Transfer/Neural_Style_Transfer/asset/style.jpg" alt = 'style_image' width = '500'/>               <img src = "https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S8-Image_Super-Resolution_and_Neural_Style_Transfer/Neural_Style_Transfer/asset/content.jpg" alt = "content_image" width = '500'/>
 
-
+## Output
 <p align = 'center'><img src = "https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S8-Image_Super-Resolution_and_Neural_Style_Transfer/Neural_Style_Transfer/asset/style_transfer.png" alt = "content_image" width = '500'/></p>
 
 
