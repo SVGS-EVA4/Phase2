@@ -27,7 +27,6 @@
 
 ![Style image](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S8-Image_Super-Resolution_and_Neural_Style_Transfer/Neural_Style_Transfer/asset/style.jpg)
 
-**Style Image**
 
 ![Content Image](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S8-Image_Super-Resolution_and_Neural_Style_Transfer/Neural_Style_Transfer/asset/content.jpg)
 
