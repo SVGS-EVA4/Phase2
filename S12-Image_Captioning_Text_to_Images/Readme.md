@@ -30,7 +30,7 @@ We **initialize the hidden and cell state of the LSTM** using the encoded image 
 
 At the very outset, we **sort the `N` images and captions by decreasing caption lengths**. This is so that we can process only _valid_ timesteps, i.e., not process the `<pad>`s.
 
-![](./img/sorted.jpg)
+![](https://raw.githubusercontent.com/genigarus/a-PyTorch-Tutorial-to-Image-Captioning/master/img/sorted.jpg)
 
 We can iterate over each timestep, processing only the colored regions, which are the **_effective_ batch size** `N_t` at that timestep. The sorting allows the top `N_t` at any timestep to align with the outputs from the previous step. At the third timestep, for example, we process only the top 5 images, using the top 5 outputs from the previous step.
 
@@ -49,21 +49,27 @@ See [code](https://github.com/SVGS-EVA4/Phase2/blob/master/S12-Image_Captioning_
 ## Inference
 
 **1) Input**
-![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S12-Image_Captioning_Text_to_Images/asset/i6.PNG)
+
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S12-Image_Captioning_Text_to_Images/asset/i6.jpg)
 
 **1) Inference**
+
 ![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S12-Image_Captioning_Text_to_Images/asset/i1.PNG)
 
 
 **2) Input**
-![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S12-Image_Captioning_Text_to_Images/asset/i7.PNG)
+
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S12-Image_Captioning_Text_to_Images/asset/i7.jpg)
 
 **2) Inference**
+
 ![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S12-Image_Captioning_Text_to_Images/asset/i2.PNG)
 
 
 **3) Input**
-![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S12-Image_Captioning_Text_to_Images/asset/i8.PNG)
+
+![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S12-Image_Captioning_Text_to_Images/asset/i8.jpg)
 
 **3) Inference**
+
 ![](https://raw.githubusercontent.com/SVGS-EVA4/Phase2/master/S12-Image_Captioning_Text_to_Images/asset/i3.PNG)
